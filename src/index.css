@@ -1,0 +1,82 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');*/
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'AllumiStdExtendedBookBold';
+  src: url('/src/assets/fonts/allumi/fonnts.com-Allumi_Std_Extended_Book_Bold.otf') format('opentype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+html {
+  @apply bg-white text-gray-900
+}
+
+html.light {
+  @apply transition-colors duration-300 bg-white text-gray-900;
+}
+
+html.dark {
+  @apply transition-colors duration-300 dark:bg-gray-900 dark:text-white;
+}
+
+/*Hide scrollbar but keep scrolling smoothly*/
+
+/* Hide scrollbar */
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scroll-section::-webkit-scrollbar {
+  display: none; /* Hide vertical scrollbar for Chrome, Safari */
+}
+
+.scroll-section {
+  -ms-overflow-style: none; /* Hide vertical scrollbar for IE & Edge */
+  scrollbar-width: none; /* Hide vertical scrollbar for Firefox */
+}
+
+/* Hide horizontal scrollbar but keep scrolling *//
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide horizontal scrollbar but keep scrolling */
+.horizontal-scroll-container {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: hidden; /* Hide scrollbar but allow scrolling */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+:root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.5;
+}
