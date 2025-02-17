@@ -45,12 +45,12 @@ const parallaxData = [
 const About: React.FC = () => {
 
     return (
-        <section id="about" className="scroll-section items-center md:my-20 my-10 py-10 snap-start w-screen min-h-screen max-h-[120vh] flex-shrink-0 overflow-y-auto">
-            <h4 className="font-allumi font-bold  uppercase mb-2 text-left text-2xl max-w-2xl w-full">
+        <section id="about" className="scroll-section items-center md:my-20 my-10 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto">
+            <h4 className="font-allumi font-bold  uppercase pl-10 text-left text-2xl max-w-2xl w-full">
                 About
             </h4>
             {/*Grid Layout*/}
-            <div className="grid grid-cols-1 md:grid-cols-12 ">
+            <div className="grid grid-cols-1 md:grid-cols-12 md:pb-10">
                 <div className="col-span-1 hidden md:block">
                     {/* This column is intentionally left empty */}
                 </div>

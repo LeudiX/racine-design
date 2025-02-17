@@ -3,8 +3,12 @@ import { ImgLogo } from "./shared/ImgLogo/ImgLogo";
 import Navbar from "./shared/Navbar";
 import ThemeToggle from "./shared/ThemeToggle";
 
+interface HeroContainerProps {
+    scrollToSection: (id: string) => void
+}
 
-const HeroContainer: React.FC = () => {
+
+const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     // Handle theme change
@@ -14,9 +18,9 @@ const HeroContainer: React.FC = () => {
 
     return (
         <div className={`${isDarkMode ? "bg-gray-900 transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 bg-opacity-90 z-50`}>
-            <div className="flex items-center justify-between p-4 hover:shadow-md">
+            <div className="flex items-center justify-between p-2 hover:shadow-md">
                 {/* Logo */}
-                <div className="-ml-2">
+                <div className="ml-3">
                     <ImgLogo
                         imgID="racineLogo"
                         imgSrcLight="/src/assets/images/logo/Racine_Halftone.png" // Path to light mode logo
@@ -27,9 +31,9 @@ const HeroContainer: React.FC = () => {
                     />
                 </div>
                 {/* Navbar */}
-                <Navbar isDarkMode={isDarkMode} />
+                <Navbar isDarkMode={isDarkMode} scrollToSection={scrollToSection} /> {/*Props passed from parent to child component*/}
                 {/* Theme Toggle */}
-                <div className="-mr-2">
+                <div className="mr-3">
                     <ThemeToggle onThemeChange={handleThemeChange} />
                 </div>
             </div>

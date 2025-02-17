@@ -7,7 +7,7 @@ import racine_mask from '../assets/images/hero/racine_mask.webp'
 const Hero: React.FC = () => {
 
     return (
-        <section id="hero" className="scroll-section items-center md:my-15 my-10 p-10 snap-start w-screen min-h-screen max-h-screen flex-shrink-0 flex flex-col overflow-y-auto">
+        <section id="hero" className="scroll-section items-center md:my-15 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto">
             <h4 className="font-allumi font-bold  uppercase mb-8 text-left text-2xl max-w-2xl w-full">
                 Apparel brand <br /> centered at the intersection of <br /> art, consciousness & functionality
             </h4>
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
                     <img src={racine_mask} className="w-full h-48 md:w-full md:h-64 lg:w-full lg:h-80 z-10" alt="Racine Mask" />
                 </span>
             </div>
-            <div className="md:w-2xl">
+            <div className="md:w-2xl md:pb-20">
                 <p className="read-the-docs text-justify text-xs font-bold">
                     Its nomenclature and vision is representative of the work of leading
                     artist Émile Lemay Racine, whose multidisciplinary background ranging
@@ -28,8 +28,6 @@ const Hero: React.FC = () => {
                     methodology, has laid the foundation  for the brand's continuous
                     innovation in creating unique, playful and eco-conscious product.
                 </p>
-                <br />
-                <br />
             </div>
         </section>
     );

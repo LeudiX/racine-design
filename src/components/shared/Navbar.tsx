@@ -4,20 +4,13 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
 interface NavbarProps {
     isDarkMode: boolean;
+    scrollToSection: (id: string) => void
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDarkMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const menuref = useRef<HTMLDivElement>(null);
-
-    // Navigation links modified behavior for horizontal scroll
-    const scrollToSection = (id:string)=>{
-        const section = document.getElementById(id);
-        if(section){
-            section.scrollIntoView({behavior:"smooth",inline:"start"});
-        }
-    }; 
 
     // Toggle menu function
     const toggleMenu = () => {
@@ -46,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode }) => {
             <div className="md:hidden">
                 <button
                     onClick={toggleMenu}
-                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-16 hover:text-gray-500 focus:outline-none`}
+                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[10rem] hover:text-gray-500 focus:outline-none`}
                 >
                     {<Bars3BottomRightIcon className={`h-7 w-7`} />}
                 </button>
@@ -73,10 +66,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode }) => {
                         </a>
                     </li>
 
-                    {["Gallery", "Carousel", "About", "Inquiries"].map((section) => (
+                    {["Gallery", "About", "Inquiries"].map((section) => (
                         <li key={section}>
                             <button
-                                onClick={()=>scrollToSection(section.toLocaleLowerCase())}
+                                onClick={() => scrollToSection(section.toLocaleLowerCase())}
                                 className={`${isDarkMode ? "text-white" : "text-gray-800"} font-medium hover:text-gray-600`}
                             >
                                 {section}
@@ -94,16 +87,16 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode }) => {
                         Shop
                     </a>
                 </li>
-                {["Gallery", "Carousel", "About", "Inquiries"].map((section) => (
-                        <li key={section}>
-                            <button
-                                onClick={()=>{scrollToSection(section.toLocaleLowerCase())}}
-                                className={`${isDarkMode ? "text-white" : "text-gray-800"} cursor-pointer font-bold hover:text-gray-600`}
-                            >
-                                {section}
-                            </button>
-                        </li>
-                    ))}
+                {["Gallery", "About", "Inquiries"].map((section) => (
+                    <li key={section}>
+                        <button
+                            onClick={() => { scrollToSection(section.toLocaleLowerCase()) }}
+                            className={`${isDarkMode ? "text-white" : "text-gray-800"} cursor-pointer font-bold hover:text-gray-600`}
+                        >
+                            {section}
+                        </button>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
