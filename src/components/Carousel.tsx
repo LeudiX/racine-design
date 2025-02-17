@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, {useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -21,9 +21,10 @@ interface Project {
 
 interface CarouselProps {
     activeProjectId: string | null;
+    setActiveProjectId: (projectId: string) => void;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ activeProjectId }) => {
+const Carousel: React.FC<CarouselProps> = ({ activeProjectId,setActiveProjectId }) => {
 
     // Custom styles for Swiper navigation and pagination
     const swiperStyles = `
@@ -98,9 +99,9 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId }) => {
     // Find the project data for the selected ID
     const project = projects.find((p) => p.id === activeProjectId) || projects[0];
 
+
     // Ref to track the current video element
     const videoRef = useRef<HTMLVideoElement | null>(null);
-
 
     // Function to handle video play/pause
     const handleVideoClick = () => {
@@ -132,7 +133,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId }) => {
                         {projects.map((project, index) => (
                             <button
                                 key={index}
-                                
+                                onClick={() => setActiveProjectId(project.id)} // Update project on click
                                 className="rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2  py-2 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors cursor-pointer"
                             >
                                 {project.artists[0]} {/*Proyect 1st artist's name*/}

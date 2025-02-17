@@ -45,7 +45,7 @@ const Gallery: React.FC<GalleryProps> = ({ onPortraitClick }) => {
                             portraits.map((image) => (
                                 <div key={image.id}
                                     className="relative overflow-visible cursor-pointer"
-                                    onClick={() => onPortraitClick(image.id)}> {/*Notify parent with project id*/}
+                                    onClick={() => onPortraitClick(image.id)}> {/*Notify parent with project id and Update project when clicking */}
                                     <img
                                         src={image.src}
                                         alt={image.alt}

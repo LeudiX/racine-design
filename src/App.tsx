@@ -60,12 +60,12 @@ const App: React.FC = () => {
         <Hero />
 
         {/* Pass the click handler so Gallery can notify when a portrait is clicked */}
-        <Gallery onPortraitClick={handlePortraitClick} />
+        <Gallery onPortraitClick={handlePortraitClick}/>
 
         {/* Conditionally render the carousel section */}
         {
           carouselProjectId !== null && (
-            <Carousel activeProjectId={carouselProjectId} />
+            <Carousel activeProjectId={carouselProjectId} setActiveProjectId={setCarouselProjectId} />
           )
         }
 
