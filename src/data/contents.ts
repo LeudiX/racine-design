@@ -172,7 +172,6 @@ export const content = {
           id: "dorian",
           title: "Dorian Electra",
           subtitle: "My Agenda",
-          artists: ["Dorian"],
           media: [
             {
               type: "video",
@@ -199,7 +198,6 @@ export const content = {
           id: "teezo",
           title: "Teezo",
           subtitle: "Custom Outfit",
-          artists: ["Teezo"],
           media: [
             {
               type: "video",
@@ -228,10 +226,50 @@ export const content = {
           ],
         },
         {
+          id: "mattox",
+          title: "Mattox",
+          subtitle: "Legal Night Out",
+          media: [
+            {
+              type: "video",
+              url: "/media/mattox/mattox_legalnight.webm",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/1.jpg",
+              title: "Mattox",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/2.jpg",
+              title: "Mattox",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/3.jpg",
+              title: "Mattox",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/4.jpg",
+              title: "Mattox",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/5.jpg",
+              title: "Mattox",
+            },
+            {
+              type: "image",
+              url: "/media/mattox/6.jpg",
+              title: "Mattox",
+            },
+          ],
+        },
+        {
           id: "lilnas",
           title: "Lil NasX",
           subtitle: "Custom Design",
-          artists: ["Lil NasX"],
           media: [
             {
               type: "video",
@@ -245,10 +283,65 @@ export const content = {
           ],
         },
         {
+          id: "others",
+          title: "Others",
+          subtitle: "Custom Works",
+          media: [
+            {
+              type: "video",
+              url: "/media/others/babymonster.mp4",
+            },
+            {
+              type: "image",
+              url: "/media/others/badvilain_1.jpg",
+              title: "Bad Villain",
+            },
+            {
+              type: "image",
+              url: "/media/others/badvilain_2.png",
+              title: "Bad Villain",
+            },
+            {
+              type: "image",
+              url: "/media/others/jinco_1.jpg",
+              title: "Jinco",
+            },
+            {
+              type: "image",
+              url: "/media/others/jinco_2.jpg",
+              title: "Jinco",
+            },
+            {
+              type: "image",
+              url: "/media/others/jinco_3.jpg",
+              title: "Jinco",
+            },
+            {
+              type: "image",
+              url: "/media/others/moonchild_1.jpg",
+              title: "Moonchild",
+            },
+            {
+              type: "image",
+              url: "/media/others/moonchild_2.jpg",
+              title: "Moonchild",
+            },
+            {
+              type: "image",
+              url: "/media/others/moonchild_3.jpg",
+              title: "Moonchild",
+            },
+            {
+              type: "image",
+              url: "/media/others/xg_1.jpg",
+              title: "XG",
+            },
+          ],
+        },
+        {
           id: "papermag",
           title: "Paper Mag",
           subtitle: "Interview",
-          artists: ["Paper Mag"],
           media: [
             {
               type: "image",

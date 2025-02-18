@@ -59,7 +59,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                                 onClick={() => setActiveProjectId(project.id)} // Update project on click
                                 className={carousel.button.className}
                             >
-                                {project.artists[0]} {/*Proyect 1st artist's name*/}
+                                {project.title} {/*Proyect 1st artist's name*/}
                             </button>
                         ))}
                     </div>
