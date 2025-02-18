@@ -28,6 +28,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection }) => {
                         imgAlt="Racine Halftonewhite Logo"
                         className="h-16 w-16" // Adjust size as needed
                         theme={isDarkMode ? "dark" : "light"} // Pass the current theme
+                        scrollToSection={scrollToSection} //Props passed from parent to child component
                     />
                 </div>
                 {/* Navbar */}

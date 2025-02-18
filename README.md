@@ -4,6 +4,8 @@
 
 ### TODO
 
+- Check scroll align inconsitency when going to left to the hero section through Navbar Logo Icon
+
 - feat(App):Added new Footer component and Navbar animation with logic improved for autoclose
 - Check h4 title spcacing affectin text components on About section
 - Check autoclose option menu on mobile display when touching a link

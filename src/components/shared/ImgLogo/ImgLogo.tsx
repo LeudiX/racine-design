@@ -8,21 +8,13 @@ export const ImgLogo: React.FC<iImgLogoProps> = ({
     imgAlt,
     className,
     theme = "light", // Default to light mode
+    scrollToSection
 }) => {
-
-    // Navigation links modified behavior for horizontal scroll
-    const scrollToSection = (id: string) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth", inline: "start" });
-        }
-    };
-
     // Determine the image source based on the theme
     const imgSrc = theme === "dark" ? imgSrcDark : imgSrcLight;
     return (
         <button
-           onClick={()=>scrollToSection("hero")}
+            onClick={() => scrollToSection("hero")}
             className="flex items-center transition-transform duration-300 hover:scale-y-125 cursor-pointer"
         >
             <img

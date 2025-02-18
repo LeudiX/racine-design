@@ -54,13 +54,10 @@ const App: React.FC = () => {
   return (
     <>
       <HorizontalScrollContainer carouselProjectId={carouselProjectId} onRemoveCarousel={removeCarousel}>
-
         <HeroContainer scrollToSection={scrollToSection} />
-
         <Hero />
-
         {/* Pass the click handler so Gallery can notify when a portrait is clicked */}
-        <Gallery onPortraitClick={handlePortraitClick}/>
+        <Gallery onPortraitClick={handlePortraitClick} />
 
         {/* Conditionally render the carousel section */}
         {
@@ -68,9 +65,7 @@ const App: React.FC = () => {
             <Carousel activeProjectId={carouselProjectId} setActiveProjectId={setCarouselProjectId} />
           )
         }
-
         <About />
-
       </HorizontalScrollContainer>
     </>
   )

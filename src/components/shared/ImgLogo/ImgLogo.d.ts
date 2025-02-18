@@ -7,4 +7,5 @@ export interface iImgLogoProps extends PropsWithChildren {
   imgAlt: string;
   className?: string;
   theme?: "light" | "dark"; // Optional theme prop
+  scrollToSection: (id: string) => void // Prop function for Id sharing between father and childs components
 }

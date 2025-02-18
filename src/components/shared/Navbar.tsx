@@ -4,7 +4,7 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
 interface NavbarProps {
     isDarkMode: boolean;
-    scrollToSection: (id: string) => void
+    scrollToSection: (id: string) => void // Prop function for Id sharing between father and childs components
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
