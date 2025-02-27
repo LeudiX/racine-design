@@ -7,7 +7,6 @@ interface HeroContainerProps {
     scrollToSection: (id: string) => void
 }
 
-
 const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -17,7 +16,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection }) => {
     };
 
     return (
-        <div className={`${isDarkMode ? "bg-gray-900 transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 bg-opacity-90 z-50`}>
+        <div className={`${isDarkMode ? "bg-gray-900 transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 z-50`}>
             <div className="flex items-center justify-between p-2 hover:shadow-md">
                 {/* Logo */}
                 <div className="ml-3">

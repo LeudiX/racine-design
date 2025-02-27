@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
 
                     {/* Internal Links - React Scroll */}
                     <li>
-                        <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-medium hover:text-gray-600`}>
+                        <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter uppercase scale-y-80 font-normal hover:text-gray-600`}>
                             Shop
                         </a>
                     </li>
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                         <li key={section}>
                             <button
                                 onClick={() => scrollToSection(section.toLocaleLowerCase())}
-                                className={`${isDarkMode ? "text-white" : "text-gray-800"} font-medium hover:text-gray-600`}
+                                className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter uppercase scale-y-80 font-normal hover:text-gray-600`}
                             >
                                 {section}
                             </button>
@@ -83,18 +83,18 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <ul className="hidden md:flex space-x-8">
                 {/* Internal Links - React Scroll */}
                 <li>
-                    <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-bold hover:text-gray-600`}>
+                    <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold uppercase scale-y-80 hover:text-gray-600`}>
                         Shop
                     </a>
                 </li>
                 {["Gallery", "About", "Inquiries"].map((section) => (
                     <li key={section}>
-                        <button
+                        <a
                             onClick={() => { scrollToSection(section.toLocaleLowerCase()) }}
-                            className={`${isDarkMode ? "text-white" : "text-gray-800"} cursor-pointer font-bold hover:text-gray-600`}
+                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold uppercase scale-y-80 cursor-pointer hover:text-gray-600`}
                         >
                             {section}
-                        </button>
+                        </a>
                     </li>
                 ))}
             </ul>

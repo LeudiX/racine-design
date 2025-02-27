@@ -51,7 +51,7 @@ export const content = {
       "scroll-section items-center md:my-15 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
     title: {
       className:
-        "font-allumi font-bold  uppercase mb-8 text-left text-2xl max-w-2xl w-full",
+        "font-[kanit] lowercase mb-8 text-left text-2xl max-w-2xl w-full",
       first: "Apparel brand",
       second: "centered at the intersection of",
       third: "art, consciousness & functionality",
@@ -86,7 +86,7 @@ export const content = {
       "scroll-section items-center md:my-20 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
-        "font-allumi font-bold  uppercase mb-2 text-left text-2xl max-w-2xl w-full",
+        "font-[kanit] font-bold  uppercase mb-2 text-left text-2xl max-w-2xl w-full",
       content: "Gallery",
     },
     gridLayout: {
@@ -94,7 +94,7 @@ export const content = {
       colspan10: {
         className: "col-span-10",
         container: {
-          className: "grid grid-cols-2 md:grid-cols-3 gap-5 overflow-visible",
+          className: "grid grid-cols-2 gap-3 md:grid-cols-3",
         },
       },
     },
@@ -150,10 +150,10 @@ export const content = {
     swiperStyles: swiperStyles,
     title: {
       className:
-        "font-allumi font-bold  uppercase mb-2 text-left text-2xl max-w-2xl w-full",
+        "font-inter font-bold scale-y-80 tracking-wide uppercase text-left -mb-4 md:text-xl max-w-2xl w-full ",
     },
     subtitle: {
-      className: "text-left text-lg font-bold mb-4",
+      className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
       className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 md:pb-20",
@@ -163,41 +163,31 @@ export const content = {
     },
     button: {
       className:
-        "rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2  py-2 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors cursor-pointer",
+        "rounded-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent px-2.5 py-0.5  lowercase transition-colors cursor-pointer",
     },
     projects: {
-      className: "grid grid-cols-3 md:grid-cols-2 gap-2 ",
+      className: "grid grid-cols-3 md:grid-cols-2 md:gap-1 mb-2",
       dataset: [
         {
-          id: "dorian",
-          title: "Dorian Electra",
-          subtitle: "My Agenda",
+          id: "lilnas",
+          title: "Lil Nas X",
+          subtitle: "The Eric Andre Show",
           media: [
             {
               type: "video",
-              url: "/media/dorian_electra/dorian_electra_my_agenda_2021.mp4",
+              url: "/media/lil_nasx/lil_nasx_vitaminwater_2022.mp4",
             },
-            {
-              type: "image",
-              url: "/media/dorian_electra/1.jpeg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/dorian_electra/2.jpg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/dorian_electra/3.jpg",
-              title: "Dorian Electra",
-            },
+            { type: "image", url: "/media/lil_nasx/4.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/5.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/6.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/7.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/8.jpg", title: "Lil Nas X" },
           ],
         },
         {
           id: "teezo",
           title: "Teezo",
-          subtitle: "Custom Outfit",
+          subtitle: "Apple Music Ad",
           media: [
             {
               type: "video",
@@ -226,9 +216,35 @@ export const content = {
           ],
         },
         {
+          id: "dorian",
+          title: "Dorian Electra",
+          subtitle: "My Agenda Tour",
+          media: [
+            {
+              type: "video",
+              url: "/media/dorian_electra/dorian_electra_my_agenda_2021.mp4",
+            },
+            {
+              type: "image",
+              url: "/media/dorian_electra/1.jpeg",
+              title: "Dorian Electra",
+            },
+            {
+              type: "image",
+              url: "/media/dorian_electra/2.jpg",
+              title: "Dorian Electra",
+            },
+            {
+              type: "image",
+              url: "/media/dorian_electra/3.jpg",
+              title: "Dorian Electra",
+            },
+          ],
+        },
+        {
           id: "mattox",
           title: "Mattox",
-          subtitle: "Legal Night Out",
+          subtitle: "Montreality",
           media: [
             {
               type: "video",
@@ -267,25 +283,41 @@ export const content = {
           ],
         },
         {
-          id: "lilnas",
-          title: "Lil NasX",
-          subtitle: "Custom Design",
+          id: "papermag",
+          title: "Paper Mag",
+          subtitle: "Interview",
           media: [
             {
-              type: "video",
-              url: "/media/lil_nasx/lil_nasx_vitaminwater_2022.mp4",
+              type: "image",
+              url: "/media/paper_mag/2.jpg",
+              title: "Princess Gollum",
             },
-            { type: "image", url: "/media/lil_nasx/4.jpg", title: "Lil NasX" },
-            { type: "image", url: "/media/lil_nasx/5.jpg", title: "Lil NasX" },
-            { type: "image", url: "/media/lil_nasx/6.jpg", title: "Lil NasX" },
-            { type: "image", url: "/media/lil_nasx/7.jpg", title: "Lil NasX" },
-            { type: "image", url: "/media/lil_nasx/8.jpg", title: "Lil NasX" },
+            {
+              type: "image",
+              url: "/media/paper_mag/3.jpg",
+              title: "Lil Texas",
+            },
+            {
+              type: "image",
+              url: "/media/paper_mag/1.jpg",
+              title: "Dorian Electra",
+            },
+            {
+              type: "image",
+              url: "/media/paper_mag/5.jpg",
+              title: "Dizzy Fae",
+            },
+            {
+              type: "image",
+              url: "/media/paper_mag/4.jpg",
+              title: "Paolo Perfeccion",
+            },
           ],
         },
         {
           id: "others",
-          title: "Others",
-          subtitle: "Custom Works",
+          title: "Others +",
+          subtitle: "Full Costume Design 2024",
           media: [
             {
               type: "video",
@@ -336,37 +368,10 @@ export const content = {
               url: "/media/others/xg_1.jpg",
               title: "XG",
             },
-          ],
-        },
-        {
-          id: "papermag",
-          title: "Paper Mag",
-          subtitle: "Interview",
-          media: [
             {
               type: "image",
-              url: "/media/paper_mag/1.jpg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/2.jpg",
-              title: "Gollum Prince",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/3.jpg",
-              title: "Lil Texas",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/4.jpg",
-              title: "Paolo Perfeccion",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/5.jpg",
-              title: "Dizzy Fae",
+              url: "/media/others/xg_2.jpg",
+              title: "XG",
             },
           ],
         },

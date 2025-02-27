@@ -1,12 +1,15 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-inter: 'Kanit', 'sans-serif';
+}
 
 @font-face {
-  font-family: 'AllumiStdExtendedBookBold';
-  src: url('/src/assets/fonts/allumi/fonnts.com-Allumi_Std_Extended_Book_Bold.otf') format('opentype');
+  font-family: 'AllumiBold';
   font-weight: bolder;
   font-style: normal;
+  src: url('/fonts/allumi/Allumi_Std_Extended_Book_Bold.otf') format('opentype'); 
 }
 
 html {
@@ -38,7 +41,7 @@ html {
   scrollbar-width: none; /* Hide vertical scrollbar for Firefox */
 }
 
-/* Hide horizontal scrollbar but keep scrolling *//
+/* Hide horizontal scrollbar but keep scrolling */
 .horizontal-scroll-container::-webkit-scrollbar {
   display: none;
 }
@@ -77,6 +80,6 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.3em;
   line-height: 1.5;
 }
