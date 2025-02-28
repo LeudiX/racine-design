@@ -51,7 +51,7 @@ export const content = {
       "scroll-section items-center md:my-15 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
     title: {
       className:
-        "font-[kanit] lowercase mb-8 text-left text-2xl max-w-2xl w-full",
+        "font-[kanit] font-semibold lowercase mb-8 text-left scale-y-90 text-2xl max-w-2xl w-full",
       first: "Apparel brand",
       second: "centered at the intersection of",
       third: "art, consciousness & functionality",
@@ -78,7 +78,7 @@ export const content = {
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
-      className: "text-justify text-xs font-bold",
+      className: "font-inter text-justify text-xs md:text-sm font-medium scale-y-90",
     },
   },
   gallery: {
@@ -86,15 +86,15 @@ export const content = {
       "scroll-section items-center md:my-20 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
-        "font-[kanit] font-bold  uppercase mb-2 text-left text-2xl max-w-2xl w-full",
+        "font-[kanit] font-semibold lowercase scale-y-90 mb-2 text-left text-2xl max-w-2xl w-full",
       content: "Gallery",
     },
     gridLayout: {
       className: "grid grid-cols-1 md:grid-cols-12 md:pb-20",
       colspan10: {
-        className: "col-span-10",
+        className: "col-span-12",
         container: {
-          className: "grid grid-cols-2 gap-3 md:grid-cols-3",
+          className: "grid sm:grid-cols-1 justify-center mx-auto gap-3 md:grid-cols-3",
         },
       },
     },
@@ -102,7 +102,7 @@ export const content = {
       className: "relative overflow-visible cursor-pointer",
       content: {
         className:
-          "w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
+          "w-72 h-72 lg:w-96 lg:h-96 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
         images: [
           {
             id: "dorian",
@@ -150,20 +150,20 @@ export const content = {
     swiperStyles: swiperStyles,
     title: {
       className:
-        "font-inter font-bold scale-y-80 tracking-wide uppercase text-left -mb-4 md:text-xl max-w-2xl w-full ",
+        "font-inter font-bold scale-y-90 tracking-wide lowercase text-left -mb-4 md:text-xl max-w-2xl w-full ",
     },
     subtitle: {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
       className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 md:pb-20",
-      colspan5: {
-        className: "col-span-5 md:col-span-3",
+      colspan6: {
+        className: "col-span-6 md:col-span-3",
       },
     },
     button: {
       className:
-        "rounded-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent px-2.5 py-0.5  lowercase transition-colors cursor-pointer",
+        "rounded-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent md:px-2.5 py-0.5  lowercase transition-colors cursor-pointer",
     },
     projects: {
       className: "grid grid-cols-3 md:grid-cols-2 md:gap-1 mb-2",
@@ -392,19 +392,19 @@ export const content = {
       "scroll-section items-center md:my-20 my-10 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
-        "font-allumi font-bold  uppercase pl-10 text-left text-2xl max-w-2xl w-full",
+        "font-inter font-semibold lowercase pl-10 text-left text-2xl max-w-2xl w-full",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 md:pb-10",
+      className: "md:pb-10",
       colspan10: {
-        className: "col-span-10 -space-y-5",
+        className: "col-span-10 space-y-5",
       },
     },
     parallaxData: [
       {
         bgImage: parallax_leafs,
         fgImage: xavier_cloud,
-        fgSize: "w-48 md:w-64 lg:w-72",
+        fgSize: "w-56 md:w-64 lg:w-72",
         width: "w-72 md:w-96",
         text: "Émile Racine is a Montreal-based designer working at the intersection of industrial design, couture and art.",
         textPosition: "right",
@@ -413,6 +413,7 @@ export const content = {
       {
         bgImage: parallax_arm_blue,
         fgImage: arm,
+        p:"py-72",
         fgSize: "w-96 md:w-96 lg:w-96",
         width: "w-72 md:w-xl",
         text: "After graduated, Racine was selected as a mentee for Lignes de Fuite, where he immersed himself in fashion, honed his technical skills, and began developing his brand. International recognition followed in 2020, when he started creating one-of-a-kind for world-renowned artists. His platform boots quickly became an iconic creation, remaining a defining staple of the brand to this day.",
@@ -424,6 +425,7 @@ export const content = {
       {
         bgImage: parallax_park,
         fgImage: black_person_cut,
+        p:"py-60",
         fgSize: "w-56 md:w-56 lg:w-56",
         width: "w-72 md:w-md",
         text: "Racine's passion for music first sparked his creative journey, drawing inspiration from the icy, metallic deconstructed club sound of the early 2010s.",

@@ -85,7 +85,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
             </h6>
             {/*Grid Layout*/}
             <div className={carousel.gridLayout.className}>
-                <div className={carousel.gridLayout.colspan5.className}>
+                <div className={carousel.gridLayout.colspan6.className}>
                     <div className={carousel.projects.className}>
                         {projects.map((project, index) => (
                             <button

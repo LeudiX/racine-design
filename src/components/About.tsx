@@ -19,9 +19,6 @@ const About: React.FC = () => {
             </h4>
             {/*Grid Layout*/}
             <div className={about.gridLayout.className}>
-                <div className="col-span-1 hidden md:block">
-                    {/* This column is intentionally left empty */}
-                </div>
                 <div className={about.gridLayout.colspan10.className}>
                     {/* Iteratively Render Containers */}
                     {parallaxData.map((item, index) => (

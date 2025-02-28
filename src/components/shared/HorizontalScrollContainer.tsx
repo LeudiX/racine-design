@@ -27,7 +27,9 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                         setActiveSectionId(sectionId);
                         // If the About section becomes visible and a carousel is active, remove it.
                         if (sectionId === "about" && carouselProjectId !== null) {
-                            onRemoveCarousel();
+                            setTimeout(()=>{
+                                onRemoveCarousel(); //Remove the carousel section after 250ms
+                            },250) 
                         }
                     }
                 });

@@ -21,9 +21,6 @@ const Gallery: React.FC<GalleryProps> = ({ onPortraitClick }) => {
             </h4>
             {/*Grid Layout*/}
             <div className={gallery.gridLayout.className}>
-                <div className="col-span-1 hidden md:block">
-                    {/* This column is intentionally left empty */}
-                </div>
                 <div className={gallery.gridLayout.colspan10.className}>
                     <div className={gallery.gridLayout.colspan10.container.className}>
                         {

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import { Bars3BottomRightIcon, MinusIcon } from "@heroicons/react/24/outline"
 
 
 interface NavbarProps {
@@ -56,12 +56,12 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                     <button
                         onClick={toggleMenu}
                         className={`hover:text-gray-600 focus:outline-none`}>
-                        {<XMarkIcon className={`h-7 w-7 ${isDarkMode ? "text-white" : "text-gray-800"}`} />}
+                        {<MinusIcon className={`h-7 w-7  ${isDarkMode ? "text-white" : "text-gray-800"}`} />}
                     </button>
 
                     {/* Internal Links - React Scroll */}
                     <li>
-                        <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter uppercase scale-y-80 font-normal hover:text-gray-600`}>
+                        <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}>
                             Shop
                         </a>
                     </li>
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                         <li key={section}>
                             <button
                                 onClick={() => scrollToSection(section.toLocaleLowerCase())}
-                                className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter uppercase scale-y-80 font-normal hover:text-gray-600`}
+                                className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}
                             >
                                 {section}
                             </button>
@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <ul className="hidden md:flex space-x-8">
                 {/* Internal Links - React Scroll */}
                 <li>
-                    <a href="https://apocene.com/racine" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold uppercase scale-y-80 hover:text-gray-600`}>
+                    <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 hover:text-gray-600`}>
                         Shop
                     </a>
                 </li>
@@ -91,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                     <li key={section}>
                         <a
                             onClick={() => { scrollToSection(section.toLocaleLowerCase()) }}
-                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold uppercase scale-y-80 cursor-pointer hover:text-gray-600`}
+                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 cursor-pointer hover:text-gray-600`}
                         >
                             {section}
                         </a>
