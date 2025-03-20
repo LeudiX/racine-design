@@ -78,7 +78,8 @@ export const content = {
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
-      className: "font-inter text-justify text-xs md:text-sm font-medium scale-y-90",
+      className:
+        "font-inter text-justify text-xs md:text-sm font-medium scale-y-90",
     },
   },
   gallery: {
@@ -94,7 +95,8 @@ export const content = {
       colspan10: {
         className: "col-span-12",
         container: {
-          className: "grid sm:grid-cols-1 justify-center mx-auto gap-3 md:grid-cols-3",
+          className:
+            "grid sm:grid-cols-1 justify-center mx-auto gap-3 md:grid-cols-3",
         },
       },
     },
@@ -156,7 +158,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 md:pb-20",
+      className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 pb-20",
       colspan6: {
         className: "col-span-6 md:col-span-3",
       },
@@ -171,17 +173,37 @@ export const content = {
         {
           id: "lilnas",
           title: "Lil Nas X",
-          subtitle: "The Eric Andre Show",
+          subtitle: "Eric Andre Show",
           media: [
             {
               type: "video",
-              url: "/media/lil_nasx/lil_nasx_vitaminwater_2022.mp4",
+              url: "media/lil_nasx/lilnasx_ericandre.mp4",
             },
-            { type: "image", url: "/media/lil_nasx/4.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/5.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/6.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/7.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/8.jpg", title: "Lil Nas X" },
+            {
+              type: "image",
+              url: "/media/lil_nasx/lil_nas_updated/1.jpg",
+              title: "Lil Nas X",
+            },
+            {
+              type: "image",
+              url: "/media/lil_nasx/lil_nas_updated/2.jpg",
+              title: "Lil Nas X",
+            },
+            {
+              type: "image",
+              url: "/media/lil_nasx/lil_nas_updated/3.jpg",
+              title: "Lil Nas X",
+            },
+          ],
+        },
+        {
+          id: "lilnas2",
+          title: "Lil Nas X",
+          subtitle: "Vitamin Water Ad",
+          media: [
+            { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X" },
           ],
         },
         {
@@ -378,10 +400,10 @@ export const content = {
       ],
     },
     swiper: {
-      className: "w-full h-[500px] md:h-[760px] overflow-hidden",
+      className: "w-full h-[480px] md:h-[720px] overflow-hidden",
     },
     swiperSlide: {
-      className: "flex items-center justify-center h-full",
+      className: "flex items-center justify-center w-full h-full",
       media: {
         className: "object-cover w-full h-full",
       },
@@ -413,7 +435,7 @@ export const content = {
       {
         bgImage: parallax_arm_blue,
         fgImage: arm,
-        p:"py-72",
+        p: "py-72",
         fgSize: "w-96 md:w-96 lg:w-96",
         width: "w-72 md:w-xl",
         text: "After graduated, Racine was selected as a mentee for Lignes de Fuite, where he immersed himself in fashion, honed his technical skills, and began developing his brand. International recognition followed in 2020, when he started creating one-of-a-kind for world-renowned artists. His platform boots quickly became an iconic creation, remaining a defining staple of the brand to this day.",
@@ -425,7 +447,7 @@ export const content = {
       {
         bgImage: parallax_park,
         fgImage: black_person_cut,
-        p:"py-60",
+        p: "py-60",
         fgSize: "w-56 md:w-56 lg:w-56",
         width: "w-72 md:w-md",
         text: "Racine's passion for music first sparked his creative journey, drawing inspiration from the icy, metallic deconstructed club sound of the early 2010s.",
