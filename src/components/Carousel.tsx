@@ -32,11 +32,18 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
     // Ref to track the current video element
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
+    // Ref to track the Swiper instance
+    const swiperRef = useRef<SwiperClass | null>(null);
+
     // Reset everything when switching projects
     useEffect(() => {
         setCurrentTitle(project.title);
         setLastMediaType(null); // Reset media tracking on project change
         setActiveIndex(0) //Reset pagination on project change
+
+        if (swiperRef.current) {
+            swiperRef.current.slideTo(0, 0); //Force Swiper to go to the first slide with no animation
+        }
     }, [activeProjectId, project.title]);
 
     // Function to handle video play/pause
@@ -100,8 +107,11 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                 </div>
 
                 {/* 2nd Column: Swiper Carousel */}
-                <div className="col-span-6">
+                <div className="col-span-6 md:-mt-15 md:ml-15">
                     <Swiper
+                        onSwiper={(swiper) => {
+                            swiperRef.current = swiper; // Store the Swiper instance
+                        }}
                         onSlideChange={handleSlideChange}
                         modules={[Navigation, Pagination]}
                         spaceBetween={30}
