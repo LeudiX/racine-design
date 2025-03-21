@@ -10,8 +10,16 @@ import About from './components/About'
 
 const App: React.FC = () => {
 
+  // Dark Mode Handling
+  const [isDarkMode, setIsDarkMode] = useState(false);
   // State to track if a carousel should be shown; null means no carousel
+
   const [carouselProjectId, setCarouselProjectId] = useState<string | null>(null);
+
+  // Handle theme change
+  const handleThemeChange = (isDarkMode: boolean) => {
+    setIsDarkMode(isDarkMode);
+  };
 
   const scrollToSection = (sectionId: string): void => {
     const section = document.getElementById(sectionId);
@@ -54,15 +62,19 @@ const App: React.FC = () => {
   return (
     <>
       <HorizontalScrollContainer carouselProjectId={carouselProjectId} onRemoveCarousel={removeCarousel}>
-        <HeroContainer scrollToSection={scrollToSection} />
+        
+        {/* Pass isDarkMode and handleThemeChange to HeroContainer */}
+        <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange}/>
+        
         <Hero />
+
         {/* Pass the click handler so Gallery can notify when a portrait is clicked */}
         <Gallery onPortraitClick={handlePortraitClick} />
 
         {/* Conditionally render the carousel section */}
         {
           carouselProjectId !== null && (
-            <Carousel activeProjectId={carouselProjectId} setActiveProjectId={setCarouselProjectId} />
+            <Carousel activeProjectId={carouselProjectId} setActiveProjectId={setCarouselProjectId} isDarkMode={isDarkMode} />
           )
         }
         <About />
