@@ -165,11 +165,11 @@ export const content = {
     },
     button: {
       className:
-        "rounded-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent md:px-2.5 py-0.5  lowercase transition-colors cursor-pointer",
+        "rounded-full w-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent md:px-2.5 py-0.5 lowercase transition-colors cursor-pointer",
     },
     projects: {
-      className: "grid grid-cols-3 md:grid-cols-2 md:gap-1 mb-2",
-      dataset: [
+      className: "grid grid-cols-2 md:grid-cols-2 md:gap-1 mb-2",
+      default: [
         {
           id: "lilnas",
           title: "Lil Nas X",
@@ -177,33 +177,23 @@ export const content = {
           media: [
             {
               type: "video",
-              url: "media/lil_nasx/lilnasx_ericandre.mp4",
+              url: "/media/lil_nasx/lilnasx_ericandre.mp4",
             },
             {
               type: "image",
-              url: "/media/lil_nasx/lil_nas_updated/1.jpg",
+              url: "/media/lil_nasx/lilnasx_updated/1.jpg",
               title: "Lil Nas X",
             },
             {
               type: "image",
-              url: "/media/lil_nasx/lil_nas_updated/2.jpg",
+              url: "/media/lil_nasx/lilnasx_updated/2.jpg",
               title: "Lil Nas X",
             },
             {
               type: "image",
-              url: "/media/lil_nasx/lil_nas_updated/3.jpg",
+              url: "/media/lil_nasx/lilnasx_updated/3.jpg",
               title: "Lil Nas X",
             },
-          ],
-        },
-        {
-          id: "lilnas2",
-          title: "Lil Nas X",
-          subtitle: "Vitamin Water Ad",
-          media: [
-            { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X" },
           ],
         },
         {
@@ -338,7 +328,7 @@ export const content = {
         },
         {
           id: "others",
-          title: "Others +",
+          title: "Others",
           subtitle: "Full Costume Design 2024",
           media: [
             {
@@ -398,6 +388,27 @@ export const content = {
           ],
         },
       ],
+      extra:[
+        {
+          id: "lilnas2",
+          title: "Lil Nas X",
+          subtitle: "Vitamin Water Ad",
+          media: [
+            { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X" },
+            { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X" },
+          ],
+        },
+        {
+          id: "lilnas3",
+          title: "Lil Nas X",
+          subtitle: "Kerwin Frost Show",
+          media: [
+            { type: "video", url: "/media/lil_nasx/lilnasx_kerwin_frost/lilnasx_kerwin_frost.mp4"},
+            { type: "image", url: "/media/lil_nasx/lilnasx_kerwin_frost/1.png", title: "Lil Nas X" },
+          ],
+        },
+      ]
     },
     swiper: {
       className: "w-full h-[480px] md:h-[720px] overflow-hidden",
