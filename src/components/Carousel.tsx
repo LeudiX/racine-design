@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types"; // Import Swiper types properly
 import { Navigation, Pagination } from "swiper/modules";
@@ -8,26 +9,34 @@ import "swiper/css/pagination";
 
 //! Essential import for data access
 import { content } from "../data/contents";
+import Sidebar from "./shared/Carousel/Sidebar";
 
 interface CarouselProps {
     activeProjectId: string | null;
     setActiveProjectId: (projectId: string) => void;
+    isDarkMode: boolean;
 }
 
 // Dataset instance for carousel section
 const { carousel } = content;
 
-// Projects static dataset loaded from content
-const projects = carousel.projects.dataset;
+// Default projects static dataset loaded from content
+const default_projects = carousel.projects.default;
 
-const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId }) => {
+const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, isDarkMode }) => {
     // Find the project data for the selected ID
-    const project = projects.find((p) => p.id === activeProjectId) || projects[0];
+    const project = default_projects.find((p) => p.id === activeProjectId) || default_projects[0];
 
     // Track the current displayed title, media and index
     const [currentTitle, setCurrentTitle] = useState<string>(project.title);
     const [lastMediaType, setLastMediaType] = useState<string | null>(null);
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    //Function to handle the Sidebar open and close events
+    const handleToggleSidebar = (isOpen: boolean) => {
+        setIsSidebarOpen(isOpen);
+    };
 
     // Ref to track the current video element
     const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -79,22 +88,26 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
         }
     };
 
-
     return (
         <section id="carousel" className={carousel.className}>
             {/* Inject custom Swiper styles */}
             <style>{carousel.swiperStyles}</style>
-            <h1 className={`${carousel.title.className}`}>
-                {currentTitle} {/*Dinamically loads project title or media title*/}
-            </h1>
-            <h6 className={carousel.subtitle.className}>
-                {project.subtitle} {/*Project subtitle*/}
-            </h6>
+            <div className="relative">
+                {/*Local Sidebar Component*/}
+                <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} />
+            </div>
             {/*Grid Layout*/}
             <div className={carousel.gridLayout.className}>
-                <div className={carousel.gridLayout.colspan6.className}>
+                {/* 1st Column: Projects Grid */}
+                <div className={`${carousel.gridLayout.colspan6.className}`}>
+                    <h1 className={`${carousel.title.className}`}>
+                        {currentTitle} {/*Dinamically loads project title or media title*/}
+                    </h1>
+                    <h6 className={carousel.subtitle.className}>
+                        {project.subtitle} {/*Project subtitle*/}
+                    </h6>
                     <div className={carousel.projects.className}>
-                        {projects.map((project, index) => (
+                        {default_projects.map((project, index) => (
                             <button
                                 key={index}
                                 onClick={() => setActiveProjectId(project.id)} // Update project on click
@@ -102,12 +115,23 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                             >
                                 {project.title} {/*Proyect 1st artist's name*/}
                             </button>
+
                         ))}
+                        {/*Sidebar Button Toggle*/}
+                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={carousel.button.className}>
+                            more
+                            {isSidebarOpen ? (
+                                <XMarkIcon aria-hidden="true" className="-mr-3 size-4 inline-block" />
+                            ) : (
+                                <ChevronDownIcon aria-hidden="true" className="-mr-3 size-4 inline-block" />
+                            )}
+
+                        </button>
                     </div>
                 </div>
 
                 {/* 2nd Column: Swiper Carousel */}
-                <div className="col-span-6 md:-mt-15 md:ml-15">
+                <div className="col-span-6 md:mx-10">
                     <Swiper
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper; // Store the Swiper instance
