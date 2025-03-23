@@ -2,14 +2,12 @@ import { useRef, useEffect, useState, useCallback } from "react";
 
 interface HorizontalScrollContainerProps {
     children: React.ReactNode;
-    carouselProjectId: string | null;
-    onRemoveCarousel: () => void;
 }
 
 const SCROLL_THRESHOLD = 50; // Margin before switching sections
 const SCROLL_COOLDOWN = 500; // Delay to prevent spam switching
 
-const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children, carouselProjectId, onRemoveCarousel, }) => {
+const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children}) => {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
@@ -25,12 +23,6 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
                         setActiveSectionId(sectionId);
-                        // If the About section becomes visible and a carousel is active, remove it.
-                        /*if (sectionId === "about" && carouselProjectId !== null) {
-                            setTimeout(()=>{
-                                onRemoveCarousel(); //Remove the carousel section after 250ms
-                            },250) 
-                        }*/
                     }
                 });
             },
@@ -40,7 +32,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         sections.forEach((section) => observer.observe(section));
 
         return () => sections.forEach((section) => observer.unobserve(section));
-    }, [carouselProjectId, onRemoveCarousel]);
+    });
 
     // Check if user is near the top or bottom of a section
     const isNearVerticalEdge = useCallback(
