@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HorizontalScrollContainer from './components/shared/HorizontalScrollContainer'
 import HeroContainer from './components/HeroContainer'
 import Hero from './components/Hero'
@@ -6,15 +6,19 @@ import Gallery from './components/Gallery'
 import Carousel from './components/Carousel'
 import About from './components/About'
 
-//import Footer from './components/Footer'
-
 const App: React.FC = () => {
 
   // Dark Mode Handling
   const [isDarkMode, setIsDarkMode] = useState(false);
-  // State to track if a carousel should be shown; null means no carousel
 
+  // State to track if a carousel should be shown; null means no carousel
   const [carouselProjectId, setCarouselProjectId] = useState<string | null>(null);
+
+  // State to track the active subtitle index in sidebar menu
+  const [activeSubtitleIndex, setActiveSubtitleIndex] = useState<number>(0);
+
+  // Ref to track if the project change originated from a subtitle click
+  const isSubtitleClickRef = useRef(false);
 
   // Handle theme change
   const handleThemeChange = (isDarkMode: boolean) => {
@@ -41,31 +45,32 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    if (!isSubtitleClickRef.current) {
+      setActiveSubtitleIndex(0); // Only reset subtitle index for project portrait button clicks
+    }
     if (carouselProjectId !== null) {
       scrollToSection("carousel"); // Scrolls to the Carousel section automatically
     }
+    isSubtitleClickRef.current = true;  // Mark the project change as a subtitle click
   }, [carouselProjectId]) // The scrolling process will wait until carouselProjectId updates
 
   // Callback from Gallery when a portrait is clicked:
   const handlePortraitClick = (projectId: string): void => {
+    isSubtitleClickRef.current = false; // Mark the project change as a button click
     setCarouselProjectId(projectId);
     setTimeout(() => {
       scrollToSection("carousel"); // Ensures scrolling works after updating state
-    }, 50);
+    }, 200); //Increased wait time so it wont lose the ref to te index
   };
 
-  // Callback to remove the carousel (e.g., when About section is in view)
-  const removeCarousel = useCallback((): void => {
-    setCarouselProjectId(null);
-  }, []);
 
   return (
     <>
-      <HorizontalScrollContainer carouselProjectId={carouselProjectId} onRemoveCarousel={removeCarousel}>
-        
+      <HorizontalScrollContainer>
+
         {/* Pass isDarkMode and handleThemeChange to HeroContainer */}
-        <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange}/>
-        
+        <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange} />
+
         <Hero />
 
         {/* Pass the click handler so Gallery can notify when a portrait is clicked */}
@@ -74,7 +79,12 @@ const App: React.FC = () => {
         {/* Conditionally render the carousel section */}
         {
           carouselProjectId !== null && (
-            <Carousel activeProjectId={carouselProjectId} setActiveProjectId={setCarouselProjectId} isDarkMode={isDarkMode} />
+            <Carousel isDarkMode={isDarkMode}
+              activeProjectId={carouselProjectId}
+              setActiveProjectId={setCarouselProjectId}
+              activeSubtitleIndex={activeSubtitleIndex}
+              setActiveSubtitleIndex={setActiveSubtitleIndex}
+            />
           )
         }
         <About />
