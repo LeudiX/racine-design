@@ -169,246 +169,125 @@ export const content = {
     },
     projects: {
       className: "grid grid-cols-2 md:grid-cols-2 md:gap-1 mb-2",
-      default: [
+      artists: [
         {
           id: "lilnas",
           title: "Lil Nas X",
-          subtitle: "Eric Andre Show",
-          media: [
+          projects: [
             {
-              type: "video",
-              url: "/media/lil_nasx/lilnasx_ericandre.mp4",
+              subtitle: "Eric Andre Show",
+              media: [
+                { type: "video", url: "/media/lil_nasx/lilnasx_ericandre.mp4" },
+                { type: "image", url: "/media/lil_nasx/lilnasx_updated/1.jpg", title: "Lil Nas X" },
+                { type: "image", url: "/media/lil_nasx/lilnasx_updated/2.jpg", title: "Lil Nas X" },
+                { type: "image", url: "/media/lil_nasx/lilnasx_updated/3.jpg", title: "Lil Nas X" },
+              ],
             },
             {
-              type: "image",
-              url: "/media/lil_nasx/lilnasx_updated/1.jpg",
-              title: "Lil Nas X",
+              subtitle: "Vitamin Water Ad",
+              media: [
+                { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X" },
+                { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X" },
+                { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X" },
+              ],
             },
             {
-              type: "image",
-              url: "/media/lil_nasx/lilnasx_updated/2.jpg",
-              title: "Lil Nas X",
-            },
-            {
-              type: "image",
-              url: "/media/lil_nasx/lilnasx_updated/3.jpg",
-              title: "Lil Nas X",
+              subtitle: "Kerwin Frost Show",
+              media: [
+                { type: "video", url: "/media/lil_nasx/lilnasx_kerwin_frost/lilnasx_kerwin_frost.mp4" },
+                { type: "image", url: "/media/lil_nasx/lilnasx_kerwin_frost/1.png", title: "Lil Nas X" },
+              ],
             },
           ],
         },
         {
           id: "teezo",
           title: "Teezo",
-          subtitle: "Apple Music Ad",
-          media: [
+          projects: [
             {
-              type: "video",
-              url: "/media/teezo/teezo_coachela3.webm",
-            },
-            {
-              type: "image",
-              url: "/media/teezo/1.jpg",
-              title: "Teezo",
-            },
-            {
-              type: "image",
-              url: "/media/teezo/2.jpg",
-              title: "Teezo",
-            },
-            {
-              type: "image",
-              url: "/media/teezo/3.jpg",
-              title: "Teezo",
-            },
-            {
-              type: "image",
-              url: "/media/teezo/4.jpg",
-              title: "Teezo",
+              subtitle: "Apple Music Ad",
+              media: [
+                { type: "video", url: "/media/teezo/teezo_coachela3.webm" },
+                { type: "image", url: "/media/teezo/1.jpg", title: "Teezo" },
+                { type: "image", url: "/media/teezo/2.jpg", title: "Teezo" },
+                { type: "image", url: "/media/teezo/3.jpg", title: "Teezo" },
+                { type: "image", url: "/media/teezo/4.jpg", title: "Teezo" },
+              ],
             },
           ],
         },
         {
           id: "dorian",
           title: "Dorian Electra",
-          subtitle: "My Agenda Tour",
-          media: [
+          projects: [
             {
-              type: "video",
-              url: "/media/dorian_electra/dorian_electra_my_agenda_2021.mp4",
-            },
-            {
-              type: "image",
-              url: "/media/dorian_electra/1.jpeg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/dorian_electra/2.jpg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/dorian_electra/3.jpg",
-              title: "Dorian Electra",
+              subtitle: "My Agenda Tour",
+              media: [
+                { type: "video", url: "/media/dorian_electra/dorian_electra_my_agenda_2021.mp4" },
+                { type: "image", url: "/media/dorian_electra/1.jpeg", title: "Dorian Electra" },
+                { type: "image", url: "/media/dorian_electra/2.jpg", title: "Dorian Electra" },
+                { type: "image", url: "/media/dorian_electra/3.jpg", title: "Dorian Electra" },
+              ],
             },
           ],
         },
         {
           id: "mattox",
           title: "Mattox",
-          subtitle: "Montreality",
-          media: [
+          projects: [
             {
-              type: "video",
-              url: "/media/mattox/mattox_legalnight.webm",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/1.jpg",
-              title: "Mattox",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/2.jpg",
-              title: "Mattox",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/3.jpg",
-              title: "Mattox",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/4.jpg",
-              title: "Mattox",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/5.jpg",
-              title: "Mattox",
-            },
-            {
-              type: "image",
-              url: "/media/mattox/6.jpg",
-              title: "Mattox",
+              subtitle: "Montreality",
+              media: [
+                { type: "video", url: "/media/mattox/mattox_legalnight.webm" },
+                { type: "image", url: "/media/mattox/1.jpg", title: "Mattox" },
+                { type: "image", url: "/media/mattox/2.jpg", title: "Mattox" },
+                { type: "image", url: "/media/mattox/3.jpg", title: "Mattox" },
+                { type: "image", url: "/media/mattox/4.jpg", title: "Mattox" },
+                { type: "image", url: "/media/mattox/5.jpg", title: "Mattox" },
+                { type: "image", url: "/media/mattox/6.jpg", title: "Mattox" },
+              ],
             },
           ],
         },
         {
           id: "papermag",
           title: "Paper Mag",
-          subtitle: "Interview",
-          media: [
+          projects: [
             {
-              type: "image",
-              url: "/media/paper_mag/2.jpg",
-              title: "Princess Gollum",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/3.jpg",
-              title: "Lil Texas",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/1.jpg",
-              title: "Dorian Electra",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/5.jpg",
-              title: "Dizzy Fae",
-            },
-            {
-              type: "image",
-              url: "/media/paper_mag/4.jpg",
-              title: "Paolo Perfeccion",
+              subtitle: "Interview",
+              media: [
+                { type: "image", url: "/media/paper_mag/2.jpg", title: "Princess Gollum" },
+                { type: "image", url: "/media/paper_mag/3.jpg", title: "Lil Texas" },
+                { type: "image", url: "/media/paper_mag/1.jpg", title: "Dorian Electra" },
+                { type: "image", url: "/media/paper_mag/5.jpg", title: "Dizzy Fae" },
+                { type: "image", url: "/media/paper_mag/4.jpg", title: "Paolo Perfeccion" },
+              ],
             },
           ],
         },
         {
           id: "others",
           title: "Others",
-          subtitle: "Full Costume Design 2024",
-          media: [
+          projects: [
             {
-              type: "video",
-              url: "/media/others/babymonster.mp4",
-            },
-            {
-              type: "image",
-              url: "/media/others/badvilain_1.jpg",
-              title: "Bad Villain",
-            },
-            {
-              type: "image",
-              url: "/media/others/badvilain_2.png",
-              title: "Bad Villain",
-            },
-            {
-              type: "image",
-              url: "/media/others/jinco_1.jpg",
-              title: "Jinco",
-            },
-            {
-              type: "image",
-              url: "/media/others/jinco_2.jpg",
-              title: "Jinco",
-            },
-            {
-              type: "image",
-              url: "/media/others/jinco_3.jpg",
-              title: "Jinco",
-            },
-            {
-              type: "image",
-              url: "/media/others/moonchild_1.jpg",
-              title: "Moonchild",
-            },
-            {
-              type: "image",
-              url: "/media/others/moonchild_2.jpg",
-              title: "Moonchild",
-            },
-            {
-              type: "image",
-              url: "/media/others/moonchild_3.jpg",
-              title: "Moonchild",
-            },
-            {
-              type: "image",
-              url: "/media/others/xg_1.jpg",
-              title: "XG",
-            },
-            {
-              type: "image",
-              url: "/media/others/xg_2.jpg",
-              title: "XG",
+              subtitle: "Full Costume Design 2024",
+              media: [
+                { type: "video", url: "/media/others/babymonster.mp4" },
+                { type: "image", url: "/media/others/badvilain_1.jpg", title: "Bad Villain" },
+                { type: "image", url: "/media/others/badvilain_2.png", title: "Bad Villain" },
+                { type: "image", url: "/media/others/jinco_1.jpg", title: "Jinco" },
+                { type: "image", url: "/media/others/jinco_2.jpg", title: "Jinco" },
+                { type: "image", url: "/media/others/jinco_3.jpg", title: "Jinco" },
+                { type: "image", url: "/media/others/moonchild_1.jpg", title: "Moonchild" },
+                { type: "image", url: "/media/others/moonchild_2.jpg", title: "Moonchild" },
+                { type: "image", url: "/media/others/moonchild_3.jpg", title: "Moonchild" },
+                { type: "image", url: "/media/others/xg_1.jpg", title: "XG" },
+                { type: "image", url: "/media/others/xg_2.jpg", title: "XG" },
+              ],
             },
           ],
         },
       ],
-      extra:[
-        {
-          id: "lilnas2",
-          title: "Lil Nas X",
-          subtitle: "Vitamin Water Ad",
-          media: [
-            { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X" },
-            { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X" },
-          ],
-        },
-        {
-          id: "lilnas3",
-          title: "Lil Nas X",
-          subtitle: "Kerwin Frost Show",
-          media: [
-            { type: "video", url: "/media/lil_nasx/lilnasx_kerwin_frost/lilnasx_kerwin_frost.mp4"},
-            { type: "image", url: "/media/lil_nasx/lilnasx_kerwin_frost/1.png", title: "Lil Nas X" },
-          ],
-        },
-      ]
     },
     swiper: {
       className: "w-full h-[480px] md:h-[720px] overflow-hidden",
