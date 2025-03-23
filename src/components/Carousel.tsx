@@ -15,22 +15,32 @@ interface CarouselProps {
     activeProjectId: string | null;
     setActiveProjectId: (projectId: string) => void;
     isDarkMode: boolean;
+    activeSubtitleIndex: number;
+    setActiveSubtitleIndex: (index: number) => void;
 }
 
 // Dataset instance for carousel section
 const { carousel } = content;
 
 // Default projects static dataset loaded from content
-const default_projects = carousel.projects.default;
+const default_projects = carousel.projects.artists;
 
-const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, isDarkMode }) => {
-    // Find the project data for the selected ID
-    const project = default_projects.find((p) => p.id === activeProjectId) || default_projects[0];
+const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, activeSubtitleIndex, setActiveSubtitleIndex, isDarkMode }) => {
+
+    // Find the active project
+    const project = default_projects.find((p) => p.id === activeProjectId)!;
+
+    // Ref to track if the project change originated from a subtitle click
+    const isSubtitleClickRef = useRef(false);
+
+    // Get the active subtitle and media
+    const activeSubtitle = project.projects[activeSubtitleIndex];
+    const media = activeSubtitle?.media || [];
 
     // Track the current displayed title, media and index
     const [currentTitle, setCurrentTitle] = useState<string>(project.title);
-    const [lastMediaType, setLastMediaType] = useState<string | null>(null);
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [lastMediaType, setLastMediaType] = useState<string | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     //Function to handle the Sidebar open and close events
@@ -44,8 +54,11 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
     // Ref to track the Swiper instance
     const swiperRef = useRef<SwiperClass | null>(null);
 
-    // Reset everything when switching projects
+    //  Reset states when switching projects (but not for subtitle clicks)
     useEffect(() => {
+        if (!isSubtitleClickRef.current) {
+            setActiveSubtitleIndex(0); // Only reset subtitle index for project button clicks
+        }
         setCurrentTitle(project.title);
         setLastMediaType(null); // Reset media tracking on project change
         setActiveIndex(0) //Reset pagination on project change
@@ -53,7 +66,27 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
         if (swiperRef.current) {
             swiperRef.current.slideTo(0, 0); //Force Swiper to go to the first slide with no animation
         }
-    }, [activeProjectId, project.title]);
+        // Reset the ref after handling
+        isSubtitleClickRef.current = false;
+    }, [activeProjectId, project.title, setActiveSubtitleIndex]);
+
+
+    // Function to handle subtitle click in the sidebar menu
+    const handleSubtitleClick = (projectId: string, subtitleIndex: number) => {
+        isSubtitleClickRef.current = true; // Mark the project change as a subtitle click
+        setActiveProjectId(projectId); // Update the active project
+        setActiveSubtitleIndex(subtitleIndex); // Update the active subtitle
+        setActiveIndex(0); // Reset the active index when a new subtitle is selected
+        if (swiperRef.current) {
+            swiperRef.current.slideTo(0, 0); //Force Swiper to go to the first slide with no animation
+        }
+    };
+
+    // Handle project button clicks (not from the sidebar)
+    const handleProjectButtonClick = (projectId: string) => {
+        isSubtitleClickRef.current = false; // Mark the project change as a button click
+        setActiveProjectId(projectId);
+    };
 
     // Function to handle video play/pause
     const handleVideoClick = () => {
@@ -70,11 +103,14 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
     const handleSlideChange = (swiper: SwiperClass) => {
         const newIndex: number = swiper.activeIndex; // Ensure activeIndex is always a number
         setActiveIndex(newIndex)
-        const activeMedia = project.media[newIndex];
 
+        const activeMedia = media[newIndex];
         if (!activeMedia) return;
 
-        console.log(`🔄 Swiping to index: ${newIndex} | Media type: ${activeMedia.type}`);
+        /**
+         * DEBUG: ONLY
+         * console.log(`🔄 Swiping to index: ${newIndex} | Media type: ${activeMedia.type}`);
+         */
 
         // Track media type transitions
         if (activeMedia.type === "image") {
@@ -92,25 +128,29 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
         <section id="carousel" className={carousel.className}>
             {/* Inject custom Swiper styles */}
             <style>{carousel.swiperStyles}</style>
+
             <div className="relative">
                 {/*Local Sidebar Component*/}
-                <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} />
+                <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} />
             </div>
+
             {/*Grid Layout*/}
             <div className={carousel.gridLayout.className}>
                 {/* 1st Column: Projects Grid */}
                 <div className={`${carousel.gridLayout.colspan6.className}`}>
+
                     <h1 className={`${carousel.title.className}`}>
                         {currentTitle} {/*Dinamically loads project title or media title*/}
                     </h1>
                     <h6 className={carousel.subtitle.className}>
-                        {project.subtitle} {/*Project subtitle*/}
+                        {activeSubtitle?.subtitle} {/*Project subtitle*/}
                     </h6>
+
                     <div className={carousel.projects.className}>
-                        {default_projects.map((project, index) => (
+                        {default_projects.map((project) => (
                             <button
-                                key={index}
-                                onClick={() => setActiveProjectId(project.id)} // Update project on click
+                                key={project.id}
+                                onClick={() => handleProjectButtonClick(project.id)} // Updated handler
                                 className={carousel.button.className}
                             >
                                 {project.title} {/*Proyect 1st artist's name*/}
@@ -144,11 +184,11 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                         pagination={{ clickable: true }}
                         className={carousel.swiper.className}
                     >
-                        {project.media.map((item, index) => (
+                        {media.map((item, index) => (
                             <SwiperSlide key={index}>
                                 {/* Pagination Display (Current Slide / Total) */}
                                 <div className="absolute top-2 right-2 bg-[#ffffff80] text-gray-700 px-2 py-1 rounded-full">
-                                    {activeIndex + 1} / {project.media.length}
+                                    {activeIndex + 1} / {media.length}
                                 </div>
                                 <div className={carousel.swiperSlide.className}
                                     onClick={item.type === "video" ? handleVideoClick : undefined}>
@@ -182,7 +222,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
 
                     {/* Hide Next Button if at last slide */}
                     <style>
-                        {activeIndex === project.media.length - 1
+                        {activeIndex === media.length - 1
                             ? ".swiper-button-next { display: none; }"
                             : ".swiper-button-next { display: flex; }"}
                     </style>
