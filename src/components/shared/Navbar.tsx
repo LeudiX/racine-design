@@ -61,19 +61,22 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
 
                     {/* Internal Links - React Scroll */}
                     <li>
-                        <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}>
+                        <a onClick={toggleMenu} href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}>
                             Shop
                         </a>
                     </li>
 
-                    {["Gallery", "About", "Inquiries"].map((section) => (
-                        <li key={section}>
-                            <button
-                                onClick={() => scrollToSection(section.toLocaleLowerCase())}
+                    {["Gallery", "About", "Inquiries"].map((section, index) => (
+                        <li key={index}>
+                            <a
+                                onClick={() => {
+                                    scrollToSection(section.toLocaleLowerCase());
+                                    toggleMenu();      
+                                }}
                                 className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}
                             >
                                 {section}
-                            </button>
+                            </a>
                         </li>
                     ))}
                 </ul>
