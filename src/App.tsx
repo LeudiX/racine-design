@@ -57,6 +57,7 @@ const App: React.FC = () => {
   // Callback from Gallery when a portrait is clicked:
   const handlePortraitClick = (projectId: string): void => {
     isSubtitleClickRef.current = false; // Mark the project change as a button click
+    setActiveSubtitleIndex(0); // Active the first subtitle index when button clicked
     setCarouselProjectId(projectId);
     setTimeout(() => {
       scrollToSection("carousel"); // Ensures scrolling works after updating state
