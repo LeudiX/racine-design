@@ -1,17 +1,7 @@
 // src/components/Sidebar.tsx
 import React, { useState } from "react";
 import { Menu, MenuButton, Transition } from "@headlessui/react";
-
-interface ArtistProjects {
-    subtitle: string;
-    media: readonly { type: string; url: string; title?: string }[];
-}
-
-interface Project {
-    id: string;
-    title: string;
-    projects: readonly ArtistProjects[];
-}
+import { Project } from "./Project" // Common Projects interface
 
 interface SidebarProps {
     isDarkMode: boolean;
