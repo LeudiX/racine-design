@@ -9,7 +9,9 @@ import "swiper/css/pagination";
 
 //! Essential import for data access
 import { content } from "../data/contents";
+import { Project } from "../components/shared/Carousel/Project" // Common Projects interface
 import Sidebar from "./shared/Carousel/Sidebar";
+
 
 interface CarouselProps {
     activeProjectId: string | null;
@@ -28,7 +30,7 @@ const default_projects = carousel.projects.artists;
 const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, activeSubtitleIndex, setActiveSubtitleIndex, isDarkMode }) => {
 
     // Find the active project
-    const project = default_projects.find((p) => p.id === activeProjectId)!;
+    const project: Project = default_projects.find((p) => p.id === activeProjectId)!;
 
     // Ref to track if the project change originated from a subtitle click
     const isSubtitleClickRef = useRef(false);
@@ -85,6 +87,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
     // Handle project button clicks (not from the sidebar)
     const handleProjectButtonClick = (projectId: string) => {
         isSubtitleClickRef.current = false; // Mark the project change as a button click
+        setActiveSubtitleIndex(0); // Active the first subtitle index when button clicked
         setActiveProjectId(projectId);
     };
 
@@ -114,7 +117,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
 
         // Track media type transitions
         if (activeMedia.type === "image") {
-            setCurrentTitle(activeMedia.title ?? project.title);
+            setCurrentTitle(activeMedia.name ?? project.title);
             setLastMediaType("image");
         } else if (activeMedia.type === "video") {
             if (lastMediaType === "image") {
@@ -147,7 +150,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                     </h6>
 
                     <div className={carousel.projects.className}>
-                        {default_projects.map((project) => (
+                        {default_projects.slice(0, 5).map((project) => (
                             <button
                                 key={project.id}
                                 onClick={() => handleProjectButtonClick(project.id)} // Updated handler
@@ -195,7 +198,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                                     {item.type === "image" ? (
                                         <img
                                             src={item.url}
-                                            alt={`Slide ${index}`}
+                                            alt={item.title}
                                             className={carousel.swiperSlide.media.className}
                                             title={item.title}
                                         />
@@ -204,6 +207,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                                             ref={videoRef}
                                             src={item.url}
                                             autoPlay
+                                            title={item.title}
                                             muted
                                             loop
                                             className={carousel.swiperSlide.media.className}
