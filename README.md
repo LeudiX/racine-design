@@ -21,9 +21,9 @@
   - Update global theme now applies to all components (CAROUSEL sidebar included) (except FOOTER LOL!!)
   - Solved issue when selecting multiple subtitles project under a same parent project from the sidebar losing the ref
   when selecting a project from the gallery section
+  - Edit Baby Monster video format to H264 2k
 
 - TODO:
   - Create a stylized tooltip for the gallery items (desktop only)
   - Add animations to all the components items (Hero, Gallery, About, Inquiries)
-  - Add a generated QR code for contact section
-  - Edit Baby Monster video format to H264 2k
+  - Add a generated QR code for inquiries section
