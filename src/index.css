@@ -12,11 +12,6 @@
   src: url('/fonts/allumi/Allumi_Std_Extended_Book_Bold.otf') format('opentype'); 
 }
 
-/*
-html {
-  @apply bg-white text-gray-900
-}*/
-
 html.light {
   @apply transition-colors duration-300 bg-white text-gray-900;
 }
