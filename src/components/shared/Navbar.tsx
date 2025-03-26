@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <div className="md:hidden">
                 <button
                     onClick={toggleMenu}
-                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[10rem] hover:text-gray-500 focus:outline-none`}
+                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[10rem] sm:ml-[30rem] hover:text-gray-500 focus:outline-none`}
                 >
                     {<Bars3BottomRightIcon className={`h-7 w-7`} />}
                 </button>
