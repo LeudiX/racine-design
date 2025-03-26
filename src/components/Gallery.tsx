@@ -20,19 +20,19 @@ const Gallery: React.FC<GalleryProps> = ({ onPortraitClick }) => {
                 {gallery.title.content}
             </h4>
             {/*Grid Layout*/}
-            <div className={gallery.gridLayout.className}>
+            <div className={`${gallery.gridLayout.className} `}>
                 <div className={gallery.gridLayout.colspan10.className}>
-                    <div className={gallery.gridLayout.colspan10.container.className}>
+                    <div className={`${gallery.gridLayout.colspan10.container.className}`}>
                         {
                             images.map((image) => (
                                 <div key={image.id}
-                                    className={gallery.portraits.className}
+                                    className={`${gallery.portraits.className}`}
                                     onClick={() => onPortraitClick(image.id)}> {/*Notify parent with project id and update project when clicking */}
                                     <img
                                         src={image.src}
                                         alt={image.alt}
                                         title={image.title}
-                                        className={gallery.portraits.content.className}
+                                        className={`${gallery.portraits.content.className}`}
                                     />
                                 </div>
                             ))
