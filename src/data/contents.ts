@@ -96,7 +96,7 @@ export const content = {
         className: "col-span-12",
         container: {
           className:
-            "grid sm:grid-cols-1 justify-center mx-auto gap-3 md:grid-cols-3",
+            "grid sm:grid-cols-2 md:grid-cols-3 justify-center mx-auto gap-3",
         },
       },
     },
@@ -104,7 +104,7 @@ export const content = {
       className: "relative overflow-visible cursor-pointer",
       content: {
         className:
-          "w-72 h-72 lg:w-96 lg:h-96 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
+          "md:w-60 md:h-60 lg:w-72 lg:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
         images: [
           {
             id: "dorian",
@@ -159,9 +159,6 @@ export const content = {
     },
     gridLayout: {
       className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 pb-20",
-      colspan6: {
-        className: "col-span-6 md:col-span-3",
-      },
     },
     button: {
       className:
