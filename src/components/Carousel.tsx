@@ -140,7 +140,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
             {/*Grid Layout*/}
             <div className={carousel.gridLayout.className}>
                 {/* 1st Column: Projects Grid */}
-                <div className={`${carousel.gridLayout.colspan6.className}`}>
+                <div className="md:col-span-3">
 
                     <h1 className={`${carousel.title.className}`}>
                         {currentTitle} {/*Dinamically loads project title or media title*/}
@@ -174,7 +174,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                 </div>
 
                 {/* 2nd Column: Swiper Carousel */}
-                <div className="col-span-6 md:mx-10">
+                <div className="md:col-span-7">
                     <Swiper
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper; // Store the Swiper instance
