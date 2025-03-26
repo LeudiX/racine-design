@@ -21,7 +21,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMo
                         imgSrcLight="/src/assets/images/logo/Racine_Halftone.png" // Path to light mode logo
                         imgSrcDark="/src/assets/images/logo/Racine_Halftonewhite.png" // Path to dark mode logo
                         imgAlt="Racine Halftonewhite Logo"
-                        className="h-16 w-16" // Adjust size as needed
+                        className="h-16 w-16 mr-[2.5rem]" // Adjust size as needed
                         theme={isDarkMode ? "dark" : "light"} // Pass the current theme
                         scrollToSection={scrollToSection} //Props passed from parent to child component
                     />
@@ -29,7 +29,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMo
                 {/* Navbar */}
                 <Navbar isDarkMode={isDarkMode} scrollToSection={scrollToSection} /> {/*Props passed from parent to child component*/}
                 {/* Theme Toggle */}
-                <div className="mr-3">
+                <div className="mx-3">
                     <ThemeToggle onThemeChange={onThemeChange} />
                 </div>
             </div>
