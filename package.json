@@ -1,7 +1,6 @@
 {
   "name": "emilev2-react-ts",
   "homepage": "https://leudix.github.io/emil3v3-react-ts-horizontal/",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
