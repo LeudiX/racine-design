@@ -2,12 +2,15 @@ import React from "react";
 import { ImgLogo } from "./shared/ImgLogo/ImgLogo";
 import Navbar from "./shared/Navbar";
 import ThemeToggle from "./shared/ThemeToggle";
+import { content } from "../data/contents";
 
 interface HeroContainerProps {
     scrollToSection: (id: string) => void;
     isDarkMode: boolean;
     onThemeChange: (isDarkMode: boolean) => void;
 }
+
+const { heroContainer } = content;
 
 const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMode, onThemeChange }) => {
 
@@ -18,8 +21,8 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMo
                 <div className="ml-3">
                     <ImgLogo
                         imgID="racineLogo"
-                        imgSrcLight="/src/assets/images/logo/Racine_Halftone.png" // Path to light mode logo
-                        imgSrcDark="/src/assets/images/logo/Racine_Halftonewhite.png" // Path to dark mode logo
+                        imgSrcLight={heroContainer.logoOnLight} // Path to light mode logo
+                        imgSrcDark={heroContainer.logoOnDark} // Path to dark mode logo
                         imgAlt="Racine Halftonewhite Logo"
                         className="h-16 w-16 mr-[2.5rem]" // Adjust size as needed
                         theme={isDarkMode ? "dark" : "light"} // Pass the current theme
