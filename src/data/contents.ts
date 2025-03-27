@@ -1,3 +1,7 @@
+//? Logo icons import
+import racine_halftone from "../assets/images/logo/racine_halftone.png"
+import racine_halftonewhite from "../assets/images/logo/racine_halftonewhite.png"
+
 //? Hero section main pictures import
 import tracers_logo from "../assets/images/hero/Tracers Logo.png";
 import racine_mask from "../assets/images/hero/racine_mask.webp";
@@ -9,6 +13,26 @@ import mattox_portrait from "/media/gallery/mattox.png";
 import lilnas_portrait from "/media/gallery/lil_nas.png";
 import others_portrait from "/media/gallery/others.png";
 import paper_mag from "/media/gallery/paper_mag.png";
+
+
+//? Carousel media content imports !!!
+
+//? LIL NAS X [MEDIA]
+  //? Eric Andre Show!!
+import eric_andre_video_url from "/media/lil_nasx/lilnasx_eric_andre.mp4";
+import eric_andre_img1_url from "/media/lil_nasx/lilnasx_updated/1.jpg";
+import eric_andre_img2_url from "/media/lil_nasx/lilnasx_updated/2.jpg";
+import eric_andre_img3_url from "/media/lil_nasx/lilnasx_updated/3.jpg";
+
+  //? Vitamin Water Ad!!
+import vitamin_water_img1_url from "/media/lil_nasx/1.jpg";
+import vitamin_water_img2_url from "/media/lil_nasx/2.jpg";
+import vitamin_water_img3_url from "/media/lil_nasx/3.jpg";
+
+  //? Kerwin Frost Show
+  import kerwin_frost_video_url from "/media/lil_nasx/lilnasx_kerwin_frost/lilnasx_kerwin_frost.mp4";
+  import kerwin_forst_img1_url from "/media/lil_nasx/lilnasx_kerwin_frost/1.png";
+
 
 //? Carousel section Swiper styles import
 const swiperStyles = `
@@ -46,6 +70,10 @@ import arm from "/media/about/arm.png";
 import black_person_cut from "/media/about/black_person_cut.png";
 
 export const content = {
+  heroContainer: {
+    logoOnLight: racine_halftone,
+    logoOnDark: racine_halftonewhite,
+  },
   hero: {
     className:
       "scroll-section items-center md:my-15 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
@@ -174,25 +202,25 @@ export const content = {
             {
               subtitle: "Eric Andre Show",
               media: [
-                { type: "video", url: "/media/lil_nasx/lilnasx_eric_andre.mp4", title: "Lil Nas X - Eric Andre Show" },
-                { type: "image", url: "/media/lil_nasx/lilnasx_updated/1.jpg", title: "Lil Nas X - Eric Andre Show" },
-                { type: "image", url: "/media/lil_nasx/lilnasx_updated/2.jpg", title: "Lil Nas X - Eric Andre Show" },
-                { type: "image", url: "/media/lil_nasx/lilnasx_updated/3.jpg", title: "Lil Nas X - Eric Andre Show" },
+                { type: "video", url: eric_andre_video_url, title: "Lil Nas X - Eric Andre Show" },
+                { type: "image", url: eric_andre_img1_url, title: "Lil Nas X - Eric Andre Show" },
+                { type: "image", url: eric_andre_img2_url, title: "Lil Nas X - Eric Andre Show" },
+                { type: "image", url: eric_andre_img3_url, title: "Lil Nas X - Eric Andre Show" },
               ],
             },
             {
               subtitle: "Vitamin Water Ad",
               media: [
-                { type: "image", url: "/media/lil_nasx/1.jpg", title: "Lil Nas X - Vitamin Water Ad" },
-                { type: "image", url: "/media/lil_nasx/2.jpg", title: "Lil Nas X - Vitamin Water Ad" },
-                { type: "image", url: "/media/lil_nasx/3.jpg", title: "Lil Nas X - Vitamin Water Ad" },
+                { type: "image", url: vitamin_water_img1_url, title: "Lil Nas X - Vitamin Water Ad" },
+                { type: "image", url: vitamin_water_img2_url, title: "Lil Nas X - Vitamin Water Ad" },
+                { type: "image", url: vitamin_water_img3_url, title: "Lil Nas X - Vitamin Water Ad" },
               ],
             },
             {
               subtitle: "Kerwin Frost Show",
               media: [
-                { type: "video", url: "/media/lil_nasx/lilnasx_kerwin_frost/lilnasx_kerwin_frost.mp4", title: "Lil Nas X - Kerwin Frost Show" },
-                { type: "image", url: "/media/lil_nasx/lilnasx_kerwin_frost/1.png", title: "Lil Nas X - Kerwin Frost Show" },
+                { type: "video", url: kerwin_frost_video_url, title: "Lil Nas X - Kerwin Frost Show" },
+                { type: "image", url: kerwin_forst_img1_url, title: "Lil Nas X - Kerwin Frost Show" },
               ],
             },
           ],
