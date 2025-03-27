@@ -5,7 +5,8 @@
 ### TODO
 
 - Urgent:
-  - NONE
+  - Add media content link reference as variables in content dataset
+  - Check web deployment performance on web and mobile versions
 
 - Solved:
   - Check small slide stuck when scrolling from carousel to about section(Maybe caused by the removal action of the section)
