@@ -30,7 +30,7 @@ const App: React.FC = () => {
     const container = document.getElementById("horizontal-scroll-container");
     if (section && container) {
 
-      // Reset the vertical scroll position so that the section is aligned at the top.
+      // Reset the vertical scroll position so that the section is a aligned at the top.
       section.scrollTop = 0;
 
       // Get the section’s left offset relative to the container
@@ -48,11 +48,8 @@ const App: React.FC = () => {
     if (!isSubtitleClickRef.current) {
       setActiveSubtitleIndex(0); // Only reset subtitle index for project portrait button clicks
     }
-    if (carouselProjectId !== null) {
-      scrollToSection("carousel"); // Scrolls to the Carousel section automatically
-    }
     isSubtitleClickRef.current = true;  // Mark the project change as a subtitle click
-  }, [carouselProjectId]) // The scrolling process will wait until carouselProjectId updates
+  }, []) // The scrolling process will wait until carouselProjectId updates
 
   // Callback from Gallery when a portrait is clicked:
   const handlePortraitClick = (projectId: string): void => {
@@ -68,7 +65,6 @@ const App: React.FC = () => {
   return (
     <>
       <HorizontalScrollContainer>
-
         {/* Pass isDarkMode and handleThemeChange to HeroContainer */}
         <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange} />
 
