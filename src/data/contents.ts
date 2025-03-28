@@ -200,7 +200,7 @@ export const content = {
       className: "relative overflow-visible cursor-pointer",
       content: {
         className:
-          "md:w-60 md:h-60 lg:w-72 lg:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
+          "sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
         images: [
           {
             id: "dorian",
@@ -248,20 +248,20 @@ export const content = {
     swiperStyles: swiperStyles,
     title: {
       className:
-        "font-inter font-bold scale-y-90 tracking-wide lowercase text-left -mb-4 md:text-xl max-w-2xl w-full ",
+        "font-inter font-bold scale-y-90 tracking-wide lowercase text-left -mb-3 md:text-xl max-w-2xl w-full ",
     },
     subtitle: {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 gap-x-10 pb-20",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
     },
     button: {
       className:
         "rounded-full w-full font-[kanit] md:text-sm scale-y-90 tracking-tight leading-none bg-transparent border border-gray-600 hover:border-transparent md:px-2.5 py-0.5 lowercase transition-colors cursor-pointer",
     },
     projects: {
-      className: "grid grid-cols-2 md:grid-cols-2 md:gap-1 mb-2",
+      className: "grid grid-cols-2 md:grid-cols-1 gap-1 mb-2",
       artists: [
         {
           id: "lilnas",
