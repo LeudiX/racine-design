@@ -57,7 +57,7 @@ body::-webkit-scrollbar {
 body {
   margin: 0;
   place-items: center;
-  min-width: 320px;
+  min-width: 280px;
   min-height: 100vh;
 }
 
