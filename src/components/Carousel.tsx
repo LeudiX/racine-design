@@ -132,15 +132,15 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
             {/* Inject custom Swiper styles */}
             <style>{carousel.swiperStyles}</style>
 
-            <div className="relative">
+            <div>
                 {/*Local Sidebar Component*/}
                 <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} />
             </div>
 
             {/*Grid Layout*/}
-            <div className={carousel.gridLayout.className}>
+            <div className={`${carousel.gridLayout.className}`}>
                 {/* 1st Column: Projects Grid */}
-                <div className="md:col-span-3">
+                <div className="col-span-2 md:col-start-1">
 
                     <h1 className={`${carousel.title.className}`}>
                         {currentTitle} {/*Dinamically loads project title or media title*/}
@@ -172,9 +172,8 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                         </button>
                     </div>
                 </div>
-
                 {/* 2nd Column: Swiper Carousel */}
-                <div className="md:col-span-7">
+                <div className="md:col-span-6 md:col-start-4">
                     <Swiper
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper; // Store the Swiper instance
