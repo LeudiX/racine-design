@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <div className="md:hidden">
                 <button
                     onClick={toggleMenu}
-                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[10rem] sm:ml-[30rem] hover:text-gray-500 focus:outline-none`}
+                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[8rem] sm:ml-[30rem] hover:text-gray-500 focus:outline-none`}
                 >
                     {<Bars3BottomRightIcon className={`h-7 w-7`} />}
                 </button>
@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <div ref={menuref}
                 className={`absolute top-0 left-0 right-0 transform transition-all duration-500 ease-in-out overflow-hidden
                     ${isOpen ? "opacity-100 translate-y-0 max-h-[300px] visible" : "opacity-0 -translate-y-10 max-h-0 invisible"}
-                    ${isDarkMode ? "bg-gray-800" : "bg-white"} shadow-lg md:hidden`}>
+                    ${isDarkMode ? "bg-gray-900" : "bg-white"} shadow-lg md:hidden`}>
 
                 <ul className="flex flex-col items-center space-y-4 py-4">
                     {/* Close Button */}

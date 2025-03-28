@@ -13,7 +13,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
     const [isScrolling, setIsScrolling] = useState(false);
     const [touchStartY, setTouchStartY] = useState<number | null>(null);
 
-    // Combined Observer: tracks active section and removes carousel when About section is visible.
+    // Combined Observer: tracks active section .
     useEffect(() => {
         const sections = document.querySelectorAll<HTMLElement>(".scroll-section");
 
@@ -54,7 +54,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         [activeSectionId]
     );
 
-    // Handle wheel scroll (Desktop)
+    // Handle wheel scroll (Desktop) [WORKING GOOD]
     useEffect(() => {
         const container = scrollContainerRef.current;
         if (!container) return;
