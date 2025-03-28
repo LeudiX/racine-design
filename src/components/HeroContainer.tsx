@@ -18,7 +18,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMo
         <div className={`${isDarkMode ? "bg-gray-900 transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 z-50`}>
             <div className="flex items-center justify-between p-2 hover:shadow-md">
                 {/* Logo */}
-                <div className="ml-3">
+                <div className="ml-5">
                     <ImgLogo
                         imgID="racineLogo"
                         imgSrcLight={heroContainer.logoOnLight} // Path to light mode logo
@@ -32,7 +32,7 @@ const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMo
                 {/* Navbar */}
                 <Navbar isDarkMode={isDarkMode} scrollToSection={scrollToSection} /> {/*Props passed from parent to child component*/}
                 {/* Theme Toggle */}
-                <div className="mx-3">
+                <div className="mr-5">
                     <ThemeToggle onThemeChange={onThemeChange} />
                 </div>
             </div>
