@@ -170,7 +170,7 @@ export const content = {
     },
     description: {
       container: {
-        className: "md:w-2xl md:pb-20",
+        className: "md:w-2xl pb-20",
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
@@ -248,7 +248,7 @@ export const content = {
     swiperStyles: swiperStyles,
     title: {
       className:
-        "font-inter font-bold scale-y-90 tracking-wide lowercase text-left -mb-3 md:text-xl max-w-2xl w-full ",
+        "font-[kanit] font-bold lowercase scale-y-90 tracking-wide text-left -mb-3 text-2xl max-w-2xl w-full ",
     },
     subtitle: {
       className: "text-left font-inter md:text-sm lowercase mb-4",
@@ -416,31 +416,31 @@ export const content = {
             {
               subtitle: "Bad  Villain",
               media: [
-                { type: "image", url: costume_designI_img1_url, title: "Costume Design - Bad Villain", name: "Bad Villain" },
-                { type: "image", url: costume_designI_img2_url, title: "Costume Design - Bad Villain", name: "Bad Villain" },
+                { type: "image", url: costume_designI_img1_url, title: "Costume Design - Bad Villain" },
+                { type: "image", url: costume_designI_img2_url, title: "Costume Design - Bad Villain"},
               ],
             },
             {
               subtitle: "Jinco",
               media: [
-                { type: "image", url: costume_designI_img3_url, title: "Costume Design - Jinco", name: "Jinco" },
-                { type: "image", url: costume_designI_img4_url, title: "Costume Design - Jinco", name: "Jinco" },
-                { type: "image", url: costume_designI_img5_url, title: "Costume Design - Jinco", name: "Jinco" },
+                { type: "image", url: costume_designI_img3_url, title: "Costume Design - Jinco" },
+                { type: "image", url: costume_designI_img4_url, title: "Costume Design - Jinco" },
+                { type: "image", url: costume_designI_img5_url, title: "Costume Design - Jinco" },
               ],
             },
             {
               subtitle: "Moonchild",
               media: [
-                { type: "image", url: costume_designI_img6_url, title: "Costume Design - Moonchild", name: "Moonchild" },
-                { type: "image", url: costume_designI_img7_url, title: "Costume Design - Moonchild", name: "Moonchild" },
-                { type: "image", url: costume_designI_img8_url, title: "Costume Design - Moonchild", name: "Moonchild" },
+                { type: "image", url: costume_designI_img6_url, title: "Costume Design - Moonchild"},
+                { type: "image", url: costume_designI_img7_url, title: "Costume Design - Moonchild" },
+                { type: "image", url: costume_designI_img8_url, title: "Costume Design - Moonchild"},
               ],
             },
             {
               subtitle: "XG",
               media: [
-                { type: "image", url: costume_designI_img9_url, title: "Costume Design - XG", name: "XG" },
-                { type: "image", url: costume_designI_img10_url, title: "Costume Design - XG", name: "XG" },
+                { type: "image", url: costume_designI_img9_url, title: "Costume Design - XG"},
+                { type: "image", url: costume_designI_img10_url, title: "Costume Design - XG"},
               ],
             },
           ],
