@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types"; // Import Swiper types properly
 import { Navigation, Pagination } from "swiper/modules";
@@ -11,6 +10,8 @@ import "swiper/css/pagination";
 import { content } from "../data/contents";
 import { Project } from "../components/shared/Carousel/Project" // Common Projects interface
 import Sidebar from "./shared/Carousel/Sidebar";
+import MobileMenu from "./shared/Carousel/MobileMenu";
+import DesktopMenu from "./shared/Carousel/DesktopMenu";
 
 
 interface CarouselProps {
@@ -133,7 +134,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
             <style>{carousel.swiperStyles}</style>
 
             <div>
-                {/*Local Sidebar Component*/}
+                {/*External Sidebar Component*/}
                 <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} />
             </div>
 
@@ -142,35 +143,19 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                 {/* 1st Column: Projects Grid */}
                 <div className="col-span-2 md:col-start-1">
 
-                    <h1 className={`${carousel.title.className}`}>
+                    <h4 className={`${carousel.title.className}`}>
                         {currentTitle} {/*Dinamically loads project title or media title*/}
-                    </h1>
+                    </h4>
                     <h6 className={carousel.subtitle.className}>
                         {activeSubtitle?.subtitle} {/*Project subtitle*/}
                     </h6>
+                    
+                    {/*Custom Menu (Visible on Mobile)*/}
+                    <MobileMenu className="md:hidden" isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onButtonClick={handleProjectButtonClick} />
 
-                    <div className={carousel.projects.className}>
-                        {default_projects.slice(0, 5).map((project) => (
-                            <button
-                                key={project.id}
-                                onClick={() => handleProjectButtonClick(project.id)} // Updated handler
-                                className={carousel.button.className}
-                            >
-                                {project.title} {/*Proyect 1st artist's name*/}
-                            </button>
-
-                        ))}
-                        {/*Sidebar Button Toggle*/}
-                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={carousel.button.className}>
-                            more
-                            {isSidebarOpen ? (
-                                <XMarkIcon aria-hidden="true" className="-mr-3 size-4 inline-block" />
-                            ) : (
-                                <ChevronDownIcon aria-hidden="true" className="-mr-3 size-4 inline-block" />
-                            )}
-
-                        </button>
-                    </div>
+                    {/*Custom Menu (Visibile on Desktop)*/}
+                    <DesktopMenu className="hidden md:block" projects={default_projects} onSubtitleClick={handleSubtitleClick} />
+                    
                 </div>
                 {/* 2nd Column: Swiper Carousel */}
                 <div className="md:col-span-6 md:col-start-4">
