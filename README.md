@@ -5,7 +5,7 @@
 ### TODO
 
 - Urgent:
-  - Add media content link reference as variables in content dataset
+  - Block navigation when swipe touch events over the swiper component on mobile resolution
   - Check web deployment performance on web and mobile versions
 
 - Solved:
@@ -23,6 +23,7 @@
   - Solved issue when selecting multiple subtitles project under a same parent project from the sidebar losing the ref
   when selecting a project from the gallery section
   - Edit Baby Monster video format to H264 2k
+  - Add media content link reference as variables in content dataset
 
 - TODO:
   - Create a stylized tooltip for the gallery items (desktop only)
