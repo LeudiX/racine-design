@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leudix.github.io/sitemap.xml
