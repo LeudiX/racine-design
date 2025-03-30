@@ -5,7 +5,6 @@
 ### TODO
 
 - Urgent:
-  - Block navigation when swipe touch events over the swiper component on mobile resolution
   - Check web deployment performance on web and mobile versions
 
 - Solved:
@@ -24,8 +23,10 @@
   when selecting a project from the gallery section
   - Edit Baby Monster video format to H264 2k
   - Add media content link reference as variables in content dataset
+  - Block navigation when swipe touch events over the swiper component on mobile resolution
 
 - TODO:
   - Create a stylized tooltip for the gallery items (desktop only)
   - Add animations to all the components items (Hero, Gallery, About, Inquiries)
   - Add a generated QR code for inquiries section
+  
