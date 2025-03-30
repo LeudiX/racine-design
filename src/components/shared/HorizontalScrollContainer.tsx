@@ -6,12 +6,14 @@ interface HorizontalScrollContainerProps {
 
 const SCROLL_THRESHOLD = 50; // Margin before switching sections
 const SCROLL_COOLDOWN = 500; // Delay to prevent spam switching
+const VERTICAL_THRESHOLD = 30; // Minimum vertical swipe distance required to trigger navigation
 
 const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children }) => {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
-    const [touchStartY, setTouchStartY] = useState<number | null>(null);
+    const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+    const [isTouchingSwiper, setIsTouchingSwiper] = useState(false);
 
     // Track if the user is interacting with a Swiper carousel
     const isSwiperEvent = (target: EventTarget | null): boolean => {
@@ -46,15 +48,10 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
 
             const section = document.getElementById(activeSectionId);
             if (!section) return false;
-
             const { scrollTop, scrollHeight, clientHeight } = section;
-
-            // Allow normal scrolling inside the section first
-            if (direction === "down") {
-                return scrollTop + clientHeight >= scrollHeight - SCROLL_THRESHOLD; // Only switch when at bottom
-            } else {
-                return scrollTop <= SCROLL_THRESHOLD; // Only switch when at top
-            }
+            return direction === "down"
+                ? scrollTop + clientHeight >= scrollHeight - SCROLL_THRESHOLD
+                : scrollTop <= SCROLL_THRESHOLD;
         },
         [activeSectionId]
     );
@@ -88,29 +85,47 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
 
     // Handle touch scroll (Mobile)
     const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>): void => {
-        if (isSwiperEvent(event.target)) return; // Skip if touching Swiper
-        setTouchStartY(event.touches[0].clientY);
+        const touch = event.touches[0];
+        setTouchStart({ x: touch.clientX, y: touch.clientY });
+        setIsTouchingSwiper(isSwiperEvent(event.target));
     };
 
+    // Handle touch move (Mobile)
     const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>): void => {
-        if (!touchStartY || !activeSectionId || isScrolling) return;
-        if (isSwiperEvent(event.target)) return; // Skip if moving inside Swiper
+        if (!touchStart || !activeSectionId || isScrolling) return;
 
-        const touchEndY = event.touches[0].clientY;
-        const deltaY = touchStartY - touchEndY;
+        const touch = event.touches[0];
+        const deltaX = touchStart.x - touch.clientX;
+        const deltaY = touchStart.y - touch.clientY;
 
-        if (!isNearVerticalEdge(deltaY > 0 ? "down" : "up")) return; // Only transition if near edges
+        // Check if interacting with Swiper and determine direction
+        if (isTouchingSwiper) {
+            const isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY);
+            if (isHorizontalSwipe) {
+                // Let Swiper handle horizontal swipes
+                return;
+            } else 
+                if (Math.abs(deltaY) < VERTICAL_THRESHOLD) {
+                    return; // Require minimum vertical swipe distance for navigation
+                }
+        }
 
+
+
+        // Check if near the top/bottom edge of the current section
+        const direction = deltaY > 0 ? "down" : "up";
+        if (!isNearVerticalEdge(direction)) return;
+
+        // Trigger horizontal navigation
         const container = scrollContainerRef.current;
         if (!container) return;
-
         const scrollAmount = container.clientWidth;
         container.scrollBy({
             left: deltaY > 0 ? scrollAmount : -scrollAmount,
             behavior: "smooth",
         });
 
-        setTouchStartY(null);
+        setTouchStart(null); // Reset touch after handling
     };
 
     return (
