@@ -7,16 +7,22 @@ interface HorizontalScrollContainerProps {
 const SCROLL_THRESHOLD = 50; // Margin before switching sections
 const SCROLL_COOLDOWN = 500; // Delay to prevent spam switching
 
-const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children}) => {
+const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children }) => {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
     const [touchStartY, setTouchStartY] = useState<number | null>(null);
 
+    // Track if the user is interacting with a Swiper carousel
+    const isSwiperEvent = (target: EventTarget | null): boolean => {
+        if (!target) return false;
+        const element = target as HTMLElement;
+        return element.closest('.swiper') !== null; // Check if the target is inside a Swiper
+    };
+
     // Combined Observer: tracks active section .
     useEffect(() => {
         const sections = document.querySelectorAll<HTMLElement>(".scroll-section");
-
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -30,9 +36,8 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         );
 
         sections.forEach((section) => observer.observe(section));
-
         return () => sections.forEach((section) => observer.unobserve(section));
-    });
+    }, []);
 
     // Check if user is near the top or bottom of a section
     const isNearVerticalEdge = useCallback(
@@ -60,8 +65,8 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         if (!container) return;
 
         const handleWheel = (event: WheelEvent): void => {
+            if (isSwiperEvent(event.target)) return; // Skip if scrolling inside Swiper
             if (!activeSectionId || isScrolling) return;
-
             if (!isNearVerticalEdge(event.deltaY > 0 ? "down" : "up")) return; // Only transition if near edges
 
             event.preventDefault();
@@ -83,11 +88,13 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
 
     // Handle touch scroll (Mobile)
     const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>): void => {
+        if (isSwiperEvent(event.target)) return; // Skip if touching Swiper
         setTouchStartY(event.touches[0].clientY);
     };
 
     const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>): void => {
         if (!touchStartY || !activeSectionId || isScrolling) return;
+        if (isSwiperEvent(event.target)) return; // Skip if moving inside Swiper
 
         const touchEndY = event.touches[0].clientY;
         const deltaY = touchStartY - touchEndY;
