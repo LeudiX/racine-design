@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Gallery from './components/Gallery'
 import Carousel from './components/Carousel'
 import About from './components/About'
+import SchemaMarkup from './components/seo/SchemaMarkup';
 
 const App: React.FC = () => {
 
@@ -64,6 +65,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <SchemaMarkup/>
       <HorizontalScrollContainer>
         {/* Pass isDarkMode and handleThemeChange to HeroContainer */}
         <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange} />
