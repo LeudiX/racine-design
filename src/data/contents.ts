@@ -170,7 +170,7 @@ export const content = {
     },
     description: {
       container: {
-        className: "md:w-2xl pb-20",
+        className: "md:w-2xl pb-16",
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
@@ -187,7 +187,7 @@ export const content = {
       content: "Gallery",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 md:pb-20",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
       colspan10: {
         className: "col-span-12",
         container: {
@@ -254,7 +254,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-5",
     },
     button: {
       className:
