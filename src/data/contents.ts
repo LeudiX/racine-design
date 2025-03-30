@@ -448,7 +448,7 @@ export const content = {
       ],
     },
     swiper: {
-      className: "w-full h-[480px] md:h-[720px] overflow-hidden",
+      className: "swiper w-full h-[480px] md:h-[720px] overflow-hidden",
     },
     swiperSlide: {
       className: "flex items-center justify-center w-full h-full",
