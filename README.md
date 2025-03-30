@@ -24,6 +24,7 @@
   - Edit Baby Monster video format to H264 2k
   - Add media content link reference as variables in content dataset
   - Block navigation when swipe touch events over the swiper component on mobile resolution
+  - Added configurations for SEO optimization over the App
 
 - TODO:
   - Create a stylized tooltip for the gallery items (desktop only)
