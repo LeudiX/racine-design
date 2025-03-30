@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types"; // Import Swiper types properly
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -149,13 +149,13 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                     <h6 className={carousel.subtitle.className}>
                         {activeSubtitle?.subtitle} {/*Project subtitle*/}
                     </h6>
-                    
+
                     {/*Custom Menu (Visible on Mobile)*/}
                     <MobileMenu className="md:hidden" isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onButtonClick={handleProjectButtonClick} />
 
                     {/*Custom Menu (Visibile on Desktop)*/}
                     <DesktopMenu className="hidden md:block" projects={default_projects} onSubtitleClick={handleSubtitleClick} />
-                    
+
                 </div>
                 {/* 2nd Column: Swiper Carousel */}
                 <div className="md:col-span-6 md:col-start-4">
