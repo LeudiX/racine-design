@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /private/  # Block crawlers from specific paths
+Sitemap: https://leudix.github.io/sitemap.xml
