@@ -4,9 +4,9 @@ interface HorizontalScrollContainerProps {
     children: React.ReactNode;
 }
 
-const SCROLL_THRESHOLD = 50; // Margin before switching sections
+const SCROLL_THRESHOLD = 10; // Margin before switching sections
 const SCROLL_COOLDOWN = 500; // Delay to prevent spam switching
-const VERTICAL_THRESHOLD = 30; // Minimum vertical swipe distance required to trigger navigation
+const VERTICAL_THRESHOLD = 40; // Minimum vertical swipe distance required to trigger navigation
 
 const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children }) => {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -66,7 +66,6 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
             if (!activeSectionId || isScrolling) return;
             if (!isNearVerticalEdge(event.deltaY > 0 ? "down" : "up")) return; // Only transition if near edges
 
-            event.preventDefault();
             setIsScrolling(true);
 
             const scrollAmount = container.clientWidth;
@@ -74,7 +73,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                 left: event.deltaY > 0 ? scrollAmount : -scrollAmount,
                 behavior: "smooth",
             });
-
+            event.preventDefault();
             setTimeout(() => setIsScrolling(false), SCROLL_COOLDOWN);
         };
 
@@ -110,13 +109,12 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                 }
         }
 
-
-
         // Check if near the top/bottom edge of the current section
         const direction = deltaY > 0 ? "down" : "up";
+        console.log(direction)
         if (!isNearVerticalEdge(direction)) return;
 
-        // Trigger horizontal navigation
+        // Trigger horizontal navigation and prevent default browser behavior
         const container = scrollContainerRef.current;
         if (!container) return;
         const scrollAmount = container.clientWidth;
@@ -124,7 +122,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
             left: deltaY > 0 ? scrollAmount : -scrollAmount,
             behavior: "smooth",
         });
-
+        event.preventDefault(); // Prevent browser's default scroll/overscroll
         setTouchStart(null); // Reset touch after handling
     };
 
