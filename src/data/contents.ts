@@ -20,7 +20,7 @@ import parallax_arm_blue from "/media/about/parallax_arm_blue.webp";
 import parallax_park from "/media/about/parallax_park_cloud.webp";
 import xavier_cloud from "/media/about/xavier_cloud.webp";
 import arm from "/media/about/arm.webp";
-import black_person_cut from "/media/about/black_person_cut.webp";
+import black_person from "/media/about/black_person.webp";
 
 //! CAROUSEL MEDIA IMPORTS!!!
 
@@ -170,7 +170,7 @@ export const content = {
     },
     description: {
       container: {
-        className: "md:w-2xl pb-16",
+        className: "md:w-2xl pb-14",
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
@@ -254,7 +254,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-5",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
     },
     button: {
       className:
@@ -459,13 +459,13 @@ export const content = {
   },
   about: {
     className:
-      "scroll-section items-center md:my-20 my-10 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-12 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
         "font-inter font-semibold lowercase pl-10 text-left text-2xl max-w-2xl w-full",
     },
     gridLayout: {
-      className: "md:pb-10",
+      className: "pb-10",
       colspan10: {
         className: "col-span-10 space-y-5",
       },
@@ -494,9 +494,9 @@ export const content = {
       },
       {
         bgImage: parallax_park,
-        fgImage: black_person_cut,
+        fgImage: black_person,
         p: "py-60",
-        fgSize: "w-56 md:w-56 lg:w-56",
+        fgSize: "w-48 md:w-60",
         width: "w-72 md:w-md",
         text: "Racine's passion for music first sparked his creative journey, drawing inspiration from the icy, metallic deconstructed club sound of the early 2010s.",
         text2:
