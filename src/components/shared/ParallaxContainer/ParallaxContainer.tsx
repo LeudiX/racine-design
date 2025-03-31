@@ -14,7 +14,7 @@ const ParallaxContainer: React.FC<iParallaxContainerProps> = ({
 }) => {
     return (
         <div
-            className={`relative w-full h-96 bg-cover bg-center ${p} flex items-center justify-center`}
+            className={`section-container relative w-full h-96 bg-cover bg-center ${p} flex items-center justify-center`}
             style={{ backgroundImage: `url(${bgImage})` }}
         >
             {/* Foreground Image */}
