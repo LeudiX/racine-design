@@ -1,3 +1,4 @@
+import 'default-passive-events';
 import React, { useState, useEffect, useRef } from 'react';
 import HorizontalScrollContainer from './components/shared/HorizontalScrollContainer'
 import HeroContainer from './components/HeroContainer'
