@@ -58,7 +58,20 @@ body {
   margin: 0;
   place-items: center;
   min-width: 280px;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
+}
+
+/* Global CSS */
+/*html, body {
+  overscroll-behavior: none; /* Disables pull-to-refresh and overscroll effects */
+  /*touch-action: none; /* Disables browser's default touch gestures */
+  /*height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
+  /*overflow: hidden;
+}*/
+
+#horizontal-scroll-container {
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 :root {
