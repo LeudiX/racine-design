@@ -155,7 +155,7 @@ export const content = {
     images: {
       container: {
         className:
-          "flex items-center justify-center -space-x-44 md:-space-x-64  lg:-space-x-80",
+          "section-container flex items-center justify-center -space-x-44 md:-space-x-64  lg:-space-x-80",
       },
       first: {
         image: tracers_logo,
@@ -200,7 +200,7 @@ export const content = {
       className: "relative overflow-visible cursor-pointer",
       content: {
         className:
-          "sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
+          "section-container sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
         images: [
           {
             id: "dorian",
@@ -254,7 +254,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
     },
     button: {
       className:
