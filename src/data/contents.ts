@@ -254,7 +254,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
     },
     button: {
       className:

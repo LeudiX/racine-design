@@ -4,7 +4,7 @@ interface HorizontalScrollContainerProps {
     children: React.ReactNode;
 }
 
-const SCROLL_THRESHOLD = 10; // Margin before switching sections
+const SCROLL_THRESHOLD = 20; // Margin before switching sections
 const SCROLL_COOLDOWN = 500; // Delay to prevent spam switching
 const VERTICAL_THRESHOLD = 40; // Minimum vertical swipe distance required to trigger navigation
 
