@@ -144,7 +144,7 @@ export const content = {
   },
   hero: {
     className:
-      "scroll-section items-center md:my-15 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
+      "scroll-section items-center md:my-16 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
     title: {
       className:
         "font-[kanit] font-semibold lowercase mb-8 text-left scale-y-90 text-2xl max-w-2xl w-full",
@@ -170,7 +170,7 @@ export const content = {
     },
     description: {
       container: {
-        className: "md:w-2xl pb-14",
+        className: "md:w-2xl pb-20",
       },
       content:
         "Its nomenclature and vision is representative of the work of leading artist Émile Lemay Racine, whose multidisciplinary background ranging from forward-thinking music production to an expertise in the field of industrial design along with a bold,instinctual, and yet result-oriented methodology, has laid the foundation  for the brand's continuous innovation in creating unique, playful and eco-conscious product.",
@@ -180,14 +180,14 @@ export const content = {
   },
   gallery: {
     className:
-      "scroll-section items-center md:my-20 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
         "font-[kanit] font-semibold lowercase scale-y-90 mb-2 text-left text-2xl max-w-2xl w-full",
       content: "Gallery",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
       colspan10: {
         className: "col-span-12",
         container: {
@@ -244,7 +244,7 @@ export const content = {
   },
   carousel: {
     className:
-      "scroll-section items-center md:my-20 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     swiperStyles: swiperStyles,
     title: {
       className:
@@ -254,7 +254,7 @@ export const content = {
       className: "text-left font-inter md:text-sm lowercase mb-4",
     },
     gridLayout: {
-      className: "grid grid-cols-1 md:grid-cols-12 pb-10",
+      className: "grid grid-cols-1 md:grid-cols-12 pb-20",
     },
     button: {
       className:
@@ -459,13 +459,13 @@ export const content = {
   },
   about: {
     className:
-      "scroll-section items-center md:my-20 my-12 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
         "font-inter font-semibold lowercase pl-10 text-left text-2xl max-w-2xl w-full",
     },
     gridLayout: {
-      className: "pb-10",
+      className: "pb-20",
       colspan10: {
         className: "col-span-10 space-y-5",
       },
