@@ -9,7 +9,7 @@
   font-family: 'AllumiBold';
   font-weight: bolder;
   font-style: normal;
-  src: url('/fonts/allumi/Allumi_Std_Extended_Book_Bold.otf') format('opentype'); 
+  src: url('/fonts/allumi/Allumi_Std_Extended_Book_Bold.otf') format('opentype');
 }
 
 html.light {
@@ -29,12 +29,15 @@ html {
 }
 
 .scroll-section::-webkit-scrollbar {
-  display: none; /* Hide vertical scrollbar for Chrome, Safari */
+  display: none;
+  /* Hide vertical scrollbar for Chrome, Safari */
 }
 
 .scroll-section {
-  -ms-overflow-style: none; /* Hide vertical scrollbar for IE & Edge */
-  scrollbar-width: none; /* Hide vertical scrollbar for Firefox */
+  -ms-overflow-style: none;
+  /* Hide vertical scrollbar for IE & Edge */
+  scrollbar-width: none;
+  /* Hide vertical scrollbar for Firefox */
 }
 
 /* Hide horizontal scrollbar but keep scrolling */
@@ -44,9 +47,12 @@ html {
 
 /* Hide horizontal scrollbar but keep scrolling */
 .horizontal-scroll-container {
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
-  overflow-x: hidden; /* Hide scrollbar but allow scrolling */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  overflow-x: scroll;
+  /* Hide scrollbar but allow scrolling */
 }
 
 body::-webkit-scrollbar {
@@ -58,15 +64,15 @@ body {
   margin: 0;
   place-items: center;
   min-width: 280px;
-  /*min-height: 100vh;*/
+  min-height: 100vh;
 }
 
 /* Global CSS */
 /*html, body {
   overscroll-behavior: none; /* Disables pull-to-refresh and overscroll effects */
-  /*touch-action: none; /* Disables browser's default touch gestures */
-  /*height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
-  /*overflow: hidden;
+/*touch-action: none; /* Disables browser's default touch gestures */
+/*height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
+/*overflow: hidden;
 }*/
 
 #horizontal-scroll-container {
@@ -91,4 +97,68 @@ body {
 h1 {
   font-size: 2.3em;
   line-height: 1.5;
+}
+
+/*Transition behaviors*/
+/* Custom spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-fast {
+  animation: spin-slow 0.5s linear infinite;
+}
+
+@keyframes spin-fade {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.9);
+  }
+
+  15% {
+    opacity: 0;
+    transform: rotate(45deg) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: rotate(315deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.9);
+  }
+}
+
+/* Update your existing animation classes */
+.animate-spin-fade {
+  animation: spin-fade 1.5s ease-in-out forwards;
+}
+
+@keyframes backdrop-transition {
+  0% {
+    backdrop-filter: blur(0);
+    background-color: rgba(17, 24, 39, 0);
+  }
+
+  50% {
+    backdrop-filter: blur(8px);
+    background-color: rgba(17, 24, 39, 1);
+  }
+
+  100% {
+    backdrop-filter: blur(0);
+    background-color: rgba(17, 24, 39, 0);
+  }
+}
+
+.animate-backdrop-transition {
+  animation: backdrop-transition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
