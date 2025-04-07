@@ -6,6 +6,7 @@
 
 - Urgent:
   - Check web deployment performance on web and mobile versions
+  - test navigation behavior on mobile (iphone devices) mainly
 
 - Solved:
   - Check small slide stuck when scrolling from carousel to about section(Maybe caused by the removal action of the section)
@@ -25,9 +26,13 @@
   - Add media content link reference as variables in content dataset
   - Block navigation when swipe touch events over the swiper component on mobile resolution
   - Added configurations for SEO optimization over the App
+  - In Desktop Mode ensure right transition between sections, add delay to scroll so transitions wont be too reactive to the user
+  (Slow down the process)
+  - Add some animation to while transition between sections (logo rotating or archetype)
 
 - TODO:
   - Create a stylized tooltip for the gallery items (desktop only)
   - Add animations to all the components items (Hero, Gallery, About, Inquiries)
   - Add a generated QR code for inquiries section
+  
   
