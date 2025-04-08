@@ -68,17 +68,19 @@ body {
 }
 
 /* Global CSS */
-/*html, body {
-  overscroll-behavior: none; /* Disables pull-to-refresh and overscroll effects */
-/*touch-action: none; /* Disables browser's default touch gestures */
-/*height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
-/*overflow: hidden;
-}*/
-
-#horizontal-scroll-container {
-  overscroll-behavior: none;
-  touch-action: none;
+html, body {
+overscroll-behavior: none; /* Disables pull-to-refresh and overscroll effects */
+touch-action: none; /* Disables browser's default touch gestures */
+height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
 }
+
+/*
+#horizontal-scroll-container {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  touch-action: none;
+  touch-action: pan-y;  Only allow vertical scrolling
+}*/
 
 :root {
   max-width: 1280px;
@@ -160,5 +162,5 @@ h1 {
 }
 
 .animate-backdrop-transition {
-  animation: backdrop-transition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: backdrop-transition 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
