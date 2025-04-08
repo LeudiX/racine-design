@@ -16,11 +16,12 @@ const { heroContainer } = content;
 
 //! DESKTOP
 const SCROLL_THRESHOLD = 100; // Minimum scroll "effort" required[DESKTOP]
-const EDGE_THRESHOLD = 125; // Distance from top/bottom to trigger navigation
+const EDGE_THRESHOLD = 120; // Distance from top/bottom to trigger navigation
 const SCROLL_COOLDOWN = 1500; // Cooldown between transitions (prevent spam switching)  [DESKTOP]
 // ? MOBILE [TESTING]
-const MOBILE_SCROLL_THRESHOLD = 20; // Margin before switching sections [MOBILE]
-const VERTICAL_THRESHOLD = 40; // Minimum vertical swipe distance required to trigger navigation [MOBILE]
+const MOBILE_SCROLL_THRESHOLD = 80; // Margin before switching sections [MOBILE]
+const VERTICAL_THRESHOLD =40; // Minimum vertical swipe distance required to trigger navigation [MOBILE]
+const MOBILE_EDGE_THRESHOLD = 160; // Distance from top/bottom to trigger navigation
 
 //* UTILITY: Added section IDs to config
 const FIRST_SECTION = "hero";
@@ -30,10 +31,10 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const lastDirection = useRef<"up" | "down">();
     const isWheelingSwiperRef = useRef(false);
+    const isTouchingSwiperRef = useRef(false);
+    const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
 
     const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
-    const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
-    const [isTouchingSwiper, setIsTouchingSwiper] = useState(false);
     const [showTopIndicator, setShowTopIndicator] = useState(false);
     const [showBottomIndicator, setShowBottomIndicator] = useState(false);
 
@@ -81,21 +82,6 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         sections.forEach((section) => observer.observe(section));
         return () => sections.forEach((section) => observer.unobserve(section));
     }, []);
-
-    //* UTILITY:  Check if user is near the top or bottom of a section
-    const isNearVerticalEdge = useCallback(
-        (direction: "up" | "down", SCROLL_THRESHOLD: number): boolean => {
-            if (!activeSectionId) return false;
-
-            const section = document.getElementById(activeSectionId);
-            if (!section) return false;
-            const { scrollTop, scrollHeight, clientHeight } = section;
-            return direction === "down"
-                ? scrollTop + clientHeight >= scrollHeight - SCROLL_THRESHOLD
-                : scrollTop <= SCROLL_THRESHOLD;
-        },
-        [activeSectionId]
-    );
 
     //* UTILITY: Handle section transition
     const handleSectionScroll = useCallback((direction: "left" | "right") => {
@@ -199,54 +185,93 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         return () => container.removeEventListener("wheel", handleWheel);
     }, [isScrolling, activeSectionId, setIsScrolling, handleSectionScroll]);
 
-
-    // Handle touch start(Mobile)
-    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>): void => {
-        const touch = event.touches[0];
-        setTouchStart({ x: touch.clientX, y: touch.clientY });
-        setIsTouchingSwiper(isSwiperEvent(event.target));
-    };
-
     //! Handle touch move (Mobile) [TESTING]
     useEffect(() => {
         // Trigger horizontal navigation and prevent default browser behavior
         const container = scrollContainerRef.current;
         if (!container) return;
 
-        const handleTouchMove = (event: TouchEvent): void => {
+        let deltaAccumulator = 0;
+        let timeout: ReturnType<typeof setTimeout>;
+
+        // Handle touch start(Mobile)
+        const handleTouchStart = (event: globalThis.TouchEvent) => {
+            const touch = event.touches[0];
+            setTouchStart({ x: touch.clientX, y: touch.clientY });
+            isTouchingSwiperRef.current = isSwiperEvent(event.target);
+        };
+
+        const handleTouchMove = (event: globalThis.TouchEvent) => {
             if (!touchStart || !activeSectionId || isScrolling) return;
 
             const touch = event.touches[0];
+            // Add null check for touchStart
             const deltaX = touchStart.x - touch.clientX;
             const deltaY = touchStart.y - touch.clientY;
-
             // Check if near the top/bottom edge of the current section
             const direction = deltaY > 0 ? "down" : "up";
+            const absDeltaX = Math.abs(deltaX);
+            const absDeltaY = Math.abs(deltaY);
 
-            // Only transition if near edges
-            if (!isNearVerticalEdge(direction, MOBILE_SCROLL_THRESHOLD)) return;
+            // Block horizontal swipes on UI outside Swiper
+            if (!isTouchingSwiperRef.current && absDeltaX > absDeltaY) {
+                event.preventDefault();
+                event.stopPropagation();
+                return;
+            }
+
+            // Reset if direction changes
+            if (lastDirection.current && lastDirection.current !== direction) {
+                deltaAccumulator = 0;
+            }
+            lastDirection.current = direction;
+
+            // Update accumulator
+            deltaAccumulator += absDeltaY;
 
             // If still inside Swiper, allow it to handle horizontal swipes
-            if (isTouchingSwiper) {
-                setIsTouchingSwiper(false);
-                if (Math.abs(deltaX) > Math.abs(deltaY)) return;
-                if (Math.abs(deltaY) < VERTICAL_THRESHOLD) return;
-                if (!isNearVerticalEdge(direction, MOBILE_SCROLL_THRESHOLD)) return;
+            if (isTouchingSwiperRef.current) {
+                if (absDeltaX > absDeltaY) return; //Let Swiper handle horizontal
+                if (absDeltaY < VERTICAL_THRESHOLD) return;
             }
-            handleSectionScroll(direction === "down" ? "right" : "left");
-            event.preventDefault(); // Prevent browser's default scroll/overscroll
-            setTouchStart(null); // Reset touch after handling
+
+            // Check viewport edges
+            const nearEdge = direction === "down"
+                ? touch.clientY >= window.innerHeight - MOBILE_EDGE_THRESHOLD
+                : touch.clientY <= MOBILE_EDGE_THRESHOLD;
+
+            if (deltaAccumulator >= MOBILE_SCROLL_THRESHOLD && nearEdge) {
+                handleSectionScroll(direction === "down" ? "right" : "left");
+                event.preventDefault();
+
+                // Reset tracking
+                deltaAccumulator = 0;
+                setTouchStart(null);
+
+                // Add cooldown
+                setIsScrolling(true);
+                setTimeout(() => setIsScrolling(false), SCROLL_COOLDOWN);
+            }
+
+            // Auto-reset accumulator
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                deltaAccumulator = 0;
+            }, 300);
         };
 
         // Add the event listener with { passive: false }
+        container.addEventListener('touchstart', handleTouchStart);
         container.addEventListener('touchmove', handleTouchMove, { passive: false });
 
         // Cleanup
         return () => {
+            container.removeEventListener('touchstart', handleTouchStart);
             container.removeEventListener('touchmove', handleTouchMove);
+            clearTimeout(timeout);
         };
 
-    }, [touchStart, activeSectionId, isScrolling, isTouchingSwiper, isNearVerticalEdge, handleSectionScroll])
+    }, [touchStart, activeSectionId, isScrolling, setIsScrolling, handleSectionScroll])
 
     return (
         <div
@@ -298,7 +323,6 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
             <div id="horizontal-scroll-container"
                 ref={scrollContainerRef}
                 className="flex overflow-x-hidden overflow-y-hidden snap-x snap-mandatory w-screen h-screen horizontal-scroll-container"
-                onTouchStart={handleTouchStart}
             >
                 {children}
             </div>
