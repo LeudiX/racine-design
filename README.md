@@ -34,5 +34,3 @@
   - Create a stylized tooltip for the gallery items (desktop only)
   - Add animations to all the components items (Hero, Gallery, About, Inquiries)
   - Add a generated QR code for inquiries section
-  
-  
