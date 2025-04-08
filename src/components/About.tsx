@@ -24,8 +24,8 @@ const About: React.FC = () => {
                     {parallaxData.map((item, index) => (
                         <ParallaxContainer key={index} {...item} />
                     ))}
-                    <Footer />
                 </div>
+                <Footer />
             </div>
         </section>
     )
