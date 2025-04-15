@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <ul className="hidden md:flex space-x-8">
                 {/* Internal Links - React Scroll */}
                 <li>
-                    <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 hover:text-gray-600`}>
+                    <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 hover:text-gray-600 transition-colors duration-300`}>
                         Shop
                     </a>
                 </li>
@@ -94,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                     <li key={section}>
                         <a
                             onClick={() => { scrollToSection(section.toLocaleLowerCase()) }}
-                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 cursor-pointer hover:text-gray-600`}
+                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 cursor-pointer hover:text-gray-600 transition-colors duration-300`}
                         >
                             {section}
                         </a>
