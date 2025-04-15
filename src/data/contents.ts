@@ -22,6 +22,10 @@ import xavier_cloud from "/media/about/xavier_cloud.webp";
 import arm from "/media/about/arm.webp";
 import black_person from "/media/about/black_person.webp";
 
+//! Inquiries section image import
+import plane_parallax from "/media/about/plane_parallax.webp";
+import plane_parallax_default from "/media/about/plane_parallax-modified.webp";
+
 //! CAROUSEL MEDIA IMPORTS!!!
 
 //! LIL NAS X [MEDIA]
@@ -417,7 +421,7 @@ export const content = {
               subtitle: "Bad  Villain",
               media: [
                 { type: "image", url: costume_designI_img1_url, title: "Costume Design - Bad Villain" },
-                { type: "image", url: costume_designI_img2_url, title: "Costume Design - Bad Villain"},
+                { type: "image", url: costume_designI_img2_url, title: "Costume Design - Bad Villain" },
               ],
             },
             {
@@ -431,16 +435,16 @@ export const content = {
             {
               subtitle: "Moonchild",
               media: [
-                { type: "image", url: costume_designI_img6_url, title: "Costume Design - Moonchild"},
+                { type: "image", url: costume_designI_img6_url, title: "Costume Design - Moonchild" },
                 { type: "image", url: costume_designI_img7_url, title: "Costume Design - Moonchild" },
-                { type: "image", url: costume_designI_img8_url, title: "Costume Design - Moonchild"},
+                { type: "image", url: costume_designI_img8_url, title: "Costume Design - Moonchild" },
               ],
             },
             {
               subtitle: "XG",
               media: [
-                { type: "image", url: costume_designI_img9_url, title: "Costume Design - XG"},
-                { type: "image", url: costume_designI_img10_url, title: "Costume Design - XG"},
+                { type: "image", url: costume_designI_img9_url, title: "Costume Design - XG" },
+                { type: "image", url: costume_designI_img10_url, title: "Costume Design - XG" },
               ],
             },
           ],
@@ -505,5 +509,23 @@ export const content = {
         fgPosition: "center",
       },
     ],
+  },
+  inquiries: {
+    image: [
+      {
+        id: 'plane_parallax',
+        src: plane_parallax,
+        alt: 'Inquiries Plane Illustration',
+        title: 'Racine Logo Plane',
+        className: 'w-full h-full object-contain',
+      },
+      {
+        id: 'default_plane_parallax',
+        src: plane_parallax_default,
+        alt: 'Inquiries Plane Illustration',
+        title: 'Racine Logo Plane',
+        className: 'w-full h-full object-contain',
+      },
+    ], 
   },
 } as const; // Prevents modifications & enforces literal types (Best for static configs & pre-defined data)
