@@ -17,7 +17,7 @@ const { heroContainer } = content;
 //! DESKTOP
 const SCROLL_THRESHOLD = 100; // Minimum scroll "effort" required[DESKTOP]
 const EDGE_THRESHOLD = 120; // Distance from top/bottom to trigger navigation
-const SCROLL_COOLDOWN = 1500; // Cooldown between transitions (prevent spam switching)  [DESKTOP]
+const SCROLL_COOLDOWN = 2000; // Cooldown between transitions (prevent spam switching)  [DESKTOP]
 // ? MOBILE [TESTING]
 const MOBILE_SCROLL_THRESHOLD = 80; // Margin before switching sections [MOBILE]
 const VERTICAL_THRESHOLD =40; // Minimum vertical swipe distance required to trigger navigation [MOBILE]
@@ -25,7 +25,7 @@ const MOBILE_EDGE_THRESHOLD = 160; // Distance from top/bottom to trigger naviga
 
 //* UTILITY: Added section IDs to config
 const FIRST_SECTION = "hero";
-const LAST_SECTION = "about";
+const LAST_SECTION = "inquiries";
 
 const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ children, isScrolling, setIsScrolling, isTransitioning, setIsTransitioning, isDarkMode }) => {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
