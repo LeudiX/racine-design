@@ -7,6 +7,7 @@ import Gallery from './components/Gallery'
 import Carousel from './components/Carousel'
 import About from './components/About'
 import SchemaMarkup from './components/seo/SchemaMarkup';
+import Inquiries from './components/Inquiries';
 
 const App: React.FC = () => {
   // Dark Mode Handling
@@ -117,10 +118,9 @@ const App: React.FC = () => {
           )
         }
         <About />
+        <Inquiries isDarkMode={isDarkMode} />
       </HorizontalScrollContainer>
     </>
   )
 }
-
-
-export default App
+export default App;
