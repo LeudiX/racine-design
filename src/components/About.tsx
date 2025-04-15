@@ -3,7 +3,6 @@ import ParallaxContainer from "./shared/ParallaxContainer/ParallaxContainer";
 
 //! Essential import for data access
 import { content } from "../data/contents";
-import Footer from "./Footer";
 
 // Dataset instance for about section
 const { about } = content;
@@ -25,7 +24,6 @@ const About: React.FC = () => {
                         <ParallaxContainer key={index} {...item} />
                     ))}
                 </div>
-                <Footer />
             </div>
         </section>
     )
