@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { content } from '../data/contents';
 import Footer from './Footer';
+import emailjs from '@emailjs/browser';
 
 type FormData = {
     name: string;
     email: string;
-    subject: string;
     message: string;
 }
+
+const MY_SERVICE_ID = 'your_service_id';
+const MY_TEMPLATE_ID = 'your_template_id';
+const MY_PUBLIC_KEY = 'your_public_key'; // AKA user ID
 
 interface InquiriesProps {
     isDarkMode: boolean;
@@ -26,12 +30,12 @@ const Inquiries: React.FC<InquiriesProps> = ({ isDarkMode }) => {
         setSubmitError(null);
 
         try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            if (!response.ok) throw new Error('Failed to send message');
+            const response = await emailjs.send(MY_SERVICE_ID, MY_TEMPLATE_ID, {
+                from_name: data.name,
+                from_email: data.email,
+                message: data.message,
+            }, MY_PUBLIC_KEY);
+            if (response.status !== 200) throw new Error('Failed to send message');
             setSubmitSuccess(true);
             setTimeout(() => setSubmitSuccess(false), 3000);
         } catch (error) {
@@ -86,20 +90,6 @@ const Inquiries: React.FC<InquiriesProps> = ({ isDarkMode }) => {
                                 <p className="mt-1 font-inter text-sm text-red-600">{errors.email.message}</p>
                             )}
                         </div>
-
-                        <div>
-                            <label htmlFor="subject" className={`${isDarkMode ? "text-white" : "text-gray-700"} block text-sm font-inter font-medium text-gray-700 transition-colors duration-300`}>
-                                Subject
-                            </label>
-                            <input
-                                {...register('subject', { required: 'Subject is required' })}
-                                className={`${isDarkMode ? "text-white bg-gray-600" : "text-gray-800 bg-gray-300"} mt-1 block py-2 w-full rounded-md text-sm border-gray-300 font-inter shadow-sm focus:border-gray-500 focus:ring-gray-500`}
-                            />
-                            {errors.subject && (
-                                <p className="mt-1 font-inter text-sm text-red-600">{errors.subject.message}</p>
-                            )}
-                        </div>
-
                         <div>
                             <label htmlFor="message" className={`${isDarkMode ? "text-white" : "text-gray-700"} block text-sm font-inter font-medium text-gray-700`}>
                                 Message
