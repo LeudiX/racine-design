@@ -13,11 +13,11 @@
 }
 
 html.light {
-  @apply transition-colors duration-300 bg-white text-gray-900;
+  @apply transition-colors duration-300 bg-white text-black;
 }
 
 html.dark {
-  @apply transition-colors duration-300 dark:bg-gray-900 dark:text-white;
+  @apply transition-colors duration-300 dark:bg-black dark:text-white;
 }
 
 /*Hide scrollbar but keep scrolling smoothly*/
@@ -68,10 +68,14 @@ body {
 }
 
 /* Global CSS */
-html, body {
-overscroll-behavior: none; /* Disables pull-to-refresh and overscroll effects */
-touch-action: none; /* Disables browser's default touch gestures */
-height: 100dvh; /* Use dynamic viewport height to prevent URL bar resizing */
+html,
+body {
+  overscroll-behavior: none;
+  /* Disables pull-to-refresh and overscroll effects */
+  touch-action: none;
+  /* Disables browser's default touch gestures */
+  height: 100dvh;
+  /* Use dynamic viewport height to prevent URL bar resizing */
 }
 
 :root {
@@ -139,17 +143,17 @@ h1 {
 @keyframes backdrop-transition {
   0% {
     backdrop-filter: blur(0);
-    background-color: rgba(17, 24, 39, 0);
+    background-color: rgba(23, 28, 40, 0);
   }
 
   50% {
     backdrop-filter: blur(8px);
-    background-color: rgba(17, 24, 39, 1);
+    background-color: rgb(0, 0, 0, 1);
   }
 
   100% {
     backdrop-filter: blur(0);
-    background-color: rgba(17, 24, 39, 0);
+    background-color: rgba(23, 28, 40, 0);
   }
 }
 
