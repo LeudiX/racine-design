@@ -46,7 +46,7 @@ const Inquiries: React.FC<InquiriesProps> = ({ isDarkMode }) => {
     const onFormSubmit = handleSubmit(onSubmit);
 
     return (
-        <section id="inquiries" className="scroll-section items-center md:my-20 px-10 py-20 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto">
+        <section id="inquiries" className="scroll-section items-center md:my-20 px-10 py-20 snap-always snap-start w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-14">
                 {/* Contact Form */}
                 <div className="space-y-8">
