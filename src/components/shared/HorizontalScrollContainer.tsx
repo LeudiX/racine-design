@@ -123,7 +123,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         }, SCROLL_COOLDOWN);
     }, [setIsScrolling, setIsTransitioning, activeSectionId, isTransitioning]);
 
-    //! Handle wheel scroll (Desktop) [TESTING!!!]
+    //* Handle wheel scroll (Desktop) [GOOD]
     useEffect(() => {
         const container = scrollContainerRef.current;
         if (!container) return;
@@ -185,7 +185,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
         return () => container.removeEventListener("wheel", handleWheel);
     }, [isScrolling, activeSectionId, setIsScrolling, handleSectionScroll]);
 
-    //! Handle touch move (Mobile) [TESTING]
+    //* Handle touch move (Mobile) [GOOD]
     useEffect(() => {
         // Trigger horizontal navigation and prevent default browser behavior
         const container = scrollContainerRef.current;
@@ -289,7 +289,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                 ${showTopIndicator ? 'opacity-100' : 'opacity-0'}
                 pointer-events-none z-50
                 `}>
-                <div className={`${isDarkMode ? "bg-white text-gray-900" : "bg-gray-900 text-white"} rounded-full cursor-pointer border-gray-900 border-2 px-2.5 flex font-inter font-semibold items-center animate-pulse-slow`}>
+                <div className={`${isDarkMode ? "bg-white text-black" : "bg-black text-white"} rounded-full cursor-pointer border-gray-300 border-2 px-2.5 flex font-inter font-semibold items-center animate-pulse-slow`}>
                     <ChevronLeftIcon className="w-7 h-7 -translate-x-1" />
                     <span className="md:inline-flex gap-x-0.5">GO LEFT<span className="hidden md:inline-flex">(SCROLL UP)</span></span>
                 </div>
@@ -302,7 +302,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
                 ${showBottomIndicator ? 'opacity-100' : 'opacity-0'}
                 pointer-events-none z-50
                 `}>
-                <div className={`${isDarkMode ? "bg-white text-gray-900" : "bg-gray-900 text-white"} rounded-full cursor-pointer border-gray-900 border-2 px-2.5 flex font-inter font-semibold items-center animate-pulse-slow`}>
+                <div className={`${isDarkMode ? "bg-white text-black" : "bg-black text-white"} rounded-full cursor-pointer border-gray-300 border-2 px-2.5 flex font-inter font-semibold items-center animate-pulse-slow`}>
                     <span className="md:inline-flex gap-x-0.5">GO RIGHT<span className="hidden md:inline-flex">(SCROLL DOWN)</span></span>
                     <ChevronRightIcon className="w-7 h-7 translate-x-1" />
                 </div>
@@ -322,7 +322,7 @@ const HorizontalScrollContainer: React.FC<HorizontalScrollContainerProps> = ({ c
             {/* Main Horizontal Scroll Container */}
             <div id="horizontal-scroll-container"
                 ref={scrollContainerRef}
-                className="flex overflow-x-hidden overflow-y-hidden snap-x snap-mandatory w-screen h-screen horizontal-scroll-container"
+                className="flex overflow-x-hidden overflow-y-hidden snap-x snap-mandatory w-full h-screen horizontal-scroll-container"
             >
                 {children}
             </div>
