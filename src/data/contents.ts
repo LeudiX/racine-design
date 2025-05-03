@@ -2,6 +2,10 @@
 import racine_halftone from "/media/logo/racine_halftone.webp"
 import racine_halftonewhite from "/media/logo/racine_halftonewhite.webp"
 
+// ! Theme icons import
+import racine_dark_mode_icon from "/media/theme/dark_mode.webp"
+import racine_light_mode_icon from "/media/theme/light_mode.webp"
+
 //! Hero section main pictures import
 import tracers_logo from "/media/hero/tracers_logo.webp";
 import racine_mask from "/media/hero/racine_mask.webp";
@@ -145,10 +149,12 @@ export const content = {
   heroContainer: {
     logoOnLight: racine_halftone,
     logoOnDark: racine_halftonewhite,
+    themeIconOnLight:racine_light_mode_icon,
+    themeIconOnDark:racine_dark_mode_icon,
   },
   hero: {
     className:
-      "scroll-section items-center md:my-16 my-10 p-10 snap-always w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
+      "scroll-section items-center md:my-16 my-10 p-10 snap-always snap-start w-screen h-screen flex-shrink-0 flex flex-col overflow-y-auto",
     title: {
       className:
         "font-[kanit] font-semibold lowercase mb-8 text-left scale-y-90 text-2xl max-w-2xl w-full",
@@ -184,7 +190,7 @@ export const content = {
   },
   gallery: {
     className:
-      "scroll-section items-center md:my-20 my-16 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 p-10 snap-always snap-start w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
         "font-[kanit] font-semibold lowercase scale-y-90 mb-2 text-left text-2xl max-w-2xl w-full",
@@ -248,7 +254,7 @@ export const content = {
   },
   carousel: {
     className:
-      "scroll-section items-center md:my-20 my-16 p-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 p-10 snap-always snap-start w-screen h-screen flex-shrink-0 overflow-y-auto",
     swiperStyles: swiperStyles,
     title: {
       className:
@@ -463,7 +469,7 @@ export const content = {
   },
   about: {
     className:
-      "scroll-section items-center md:my-20 my-16 py-10 snap-always w-screen h-screen flex-shrink-0 overflow-y-auto",
+      "scroll-section items-center md:my-20 my-16 py-10 snap-always snap-start w-screen h-screen flex-shrink-0 overflow-y-auto",
     title: {
       className:
         "font-inter font-semibold lowercase pl-10 text-left text-2xl max-w-2xl w-full",
@@ -526,6 +532,6 @@ export const content = {
         title: 'Racine Logo Plane',
         className: 'w-full h-full object-contain',
       },
-    ], 
+    ],
   },
 } as const; // Prevents modifications & enforces literal types (Best for static configs & pre-defined data)
