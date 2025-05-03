@@ -15,8 +15,8 @@ const { heroContainer } = content;
 const HeroContainer: React.FC<HeroContainerProps> = ({ scrollToSection, isDarkMode, onThemeChange }) => {
 
     return (
-        <div className={`${isDarkMode ? "bg-gray-900 transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 z-50`}>
-            <div className="flex items-center justify-between p-2 hover:shadow-md">
+        <div className={`${isDarkMode ? "bg-black transition-colors duration-300" : "bg-white transition-colors duration-300"} fixed top-0 left-0 right-0 z-50`}>
+            <div className="flex items-center justify-between p-2">
                 {/* Logo */}
                 <div className="ml-5">
                     <ImgLogo
