@@ -100,12 +100,9 @@ const App: React.FC = () => {
       <HorizontalScrollContainer isScrolling={isScrolling} setIsScrolling={setIsScrolling} isTransitioning={isTransitioning} setIsTransitioning={setIsTransitioning} isDarkMode={isDarkMode}>
         {/* Pass isDarkMode and handleThemeChange to HeroContainer */}
         <HeroContainer scrollToSection={scrollToSection} isDarkMode={isDarkMode} onThemeChange={handleThemeChange} />
-
         <Hero />
-
         {/* Pass the click handler so Gallery can notify when a portrait is clicked */}
         <Gallery onPortraitClick={handlePortraitClick} />
-
         {/* Conditionally render the carousel section */}
         {
           carouselProjectId !== null && (
