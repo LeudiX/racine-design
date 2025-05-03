@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <div className="md:hidden">
                 <button
                     onClick={toggleMenu}
-                    className={`${isDarkMode ? "text-white" : "text-gray-800"} ml-[8rem] sm:ml-[30rem] hover:text-gray-500 focus:outline-none`}
+                    className={`${isDarkMode ? "text-white" : "text-gray-950"} ml-[8rem] sm:ml-[30rem] cursor-pointer hover:text-gray-700 focus:outline-none`}
                 >
                     {<Bars3BottomRightIcon className={`h-7 w-7`} />}
                 </button>
@@ -47,21 +47,21 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
 
             {/*Animated Dropdown Menu (Visible on Mobile) */}
             <div ref={menuref}
-                className={`absolute top-0 left-0 right-0 transform transition-all duration-500 ease-in-out overflow-hidden
+                className={`absolute top-0 left-0 right-0 transform transition-all duration-500 ease-in-out overflow-hidden cursor-pointer
                     ${isOpen ? "opacity-100 translate-y-0 max-h-[300px] visible" : "opacity-0 -translate-y-10 max-h-0 invisible"}
-                    ${isDarkMode ? "bg-gray-900" : "bg-white"} shadow-lg md:hidden`}>
+                    ${isDarkMode ? "bg-black" : "bg-white"} shadow-lg md:hidden`}>
 
                 <ul className="flex flex-col items-center space-y-4 py-4">
                     {/* Close Button */}
                     <button
                         onClick={toggleMenu}
-                        className={`hover:text-gray-600 focus:outline-none`}>
-                        {<MinusIcon className={`h-7 w-7  ${isDarkMode ? "text-white" : "text-gray-800"}`} />}
+                        className={`hover:text-gray-700 focus:outline-none cursor-pointer`}>
+                        {<MinusIcon className={`h-7 w-7  ${isDarkMode ? "text-white" : "text-gray-950"}`} />}
                     </button>
 
                     {/* Internal Links - React Scroll */}
                     <li>
-                        <a onClick={toggleMenu} href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}>
+                        <a onClick={toggleMenu} href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-950"} font-inter lowercase  font-bold hover:text-gray-700`}>
                             Shop
                         </a>
                     </li>
@@ -71,9 +71,9 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
                             <a
                                 onClick={() => {
                                     scrollToSection(section.toLocaleLowerCase());
-                                    toggleMenu();      
+                                    toggleMenu();
                                 }}
-                                className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter lowercase  font-bold hover:text-gray-600`}
+                                className={`${isDarkMode ? "text-white" : "text-gray-700"} font-inter lowercase  font-bold hover:text-gray-700`}
                             >
                                 {section}
                             </a>
@@ -86,15 +86,15 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, scrollToSection }) => {
             <ul className="hidden md:flex space-x-8">
                 {/* Internal Links - React Scroll */}
                 <li>
-                    <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 hover:text-gray-600 transition-colors duration-300`}>
+                    <a href="https://ap0cene.com/collections/emile-racine?srsltid=AfmBOooqFgkUVLAbIOHNVrloz3JHDhO2A9jyBhuAxbKAHFQ3zkfR_xp9&fbclid=PAZXh0bgNhZW0CMTEAAaYYxywhmhMvWKOcgYmjOVLxs7BqSAaGC9tt0Xtc-B8vlecizVvs91op0hE_aem_9uI72suYJSgvrRoL-I3-DQ" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? "text-white" : "text-gray-950"} font-inter font-bold lowercase inline-block transform-gpu transition-all duration-300 ease-out hover:scale-125 active:scale-95 cursor-pointer origin-center`}>
                         Shop
                     </a>
                 </li>
                 {["Gallery", "About", "Inquiries"].map((section) => (
-                    <li key={section}>
+                    <li key={section} className="overflow-visible">
                         <a
                             onClick={() => { scrollToSection(section.toLocaleLowerCase()) }}
-                            className={`${isDarkMode ? "text-white" : "text-gray-800"} font-inter font-bold lowercase scale-y-90 cursor-pointer hover:text-gray-600 transition-colors duration-300`}
+                            className={`${isDarkMode ? "text-white" : "text-gray-950"} font-inter font-bold lowercase inline-block transform-gpu transition-all duration-300 ease-out hover:scale-125 active:scale-95 cursor-pointer origin-center`}
                         >
                             {section}
                         </a>
