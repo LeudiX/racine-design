@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSideb
             >
                 <Menu
                     as="div"
-                    className={`fixed top-[6.5rem] ${isDarkMode ? "bg-gray-900 text-white transition-colors duration-300" : "bg-white text-gray-800 transition-colors duration-300"} left-0 h-full w-64 shadow-lg z-50`}>
+                    className={`fixed top-[6.5rem] ${isDarkMode ? "bg-black text-white transition-colors duration-300" : "bg-white text-gray-950 transition-colors duration-300"} left-0 h-full w-64 shadow-lg z-50`}>
                     <div className="p-4">
                         {/* Main Projects */}
                         {
