@@ -8,6 +8,7 @@ import Carousel from './components/Carousel'
 import About from './components/About'
 import SchemaMarkup from './components/seo/SchemaMarkup';
 import Inquiries from './components/Inquiries';
+import { Project } from "../src/components/shared/Carousel/Project" // Common Projects interface
 
 const App: React.FC = () => {
   // Dark Mode Handling
@@ -32,6 +33,9 @@ const App: React.FC = () => {
   const handleThemeChange = (isDarkMode: boolean) => {
     setIsDarkMode(isDarkMode);
   };
+
+  //Tracking active project for desktop menu dropdown opening and closing purposes
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   const scrollToSection = (sectionId: string): void => {
     const section = document.getElementById(sectionId);
@@ -83,16 +87,31 @@ const App: React.FC = () => {
     isSubtitleClickRef.current = true;  // Mark the project change as a subtitle click
   }, []) // The scrolling process will wait until carouselProjectId updates
 
+
+  // Handle project menu dropdown open and close states
+  const openProjectMenu = (project: Project) => {
+    if (activeProject?.id === project.id) {
+      // Close subtitles if the same project is clicked again
+      setActiveProject(null);
+    } else {
+      // Open subtitles for the clicked project
+      setActiveProject(project);
+    }
+  };
+
   // Callback from Gallery when a portrait is clicked:
-  const handlePortraitClick = (projectId: string): void => {
+  const handlePortraitClick = (project: Project): void => {
     isSubtitleClickRef.current = false; // Mark the project change as a button click
     setActiveSubtitleIndex(0); // Active the first subtitle index when button clicked
-    setCarouselProjectId(projectId);
+    setCarouselProjectId(project.id);
+
+    // Toggle project menu
+    openProjectMenu(project); // Passing the full project object
+
     setTimeout(() => {
       scrollToSection("carousel"); // Ensures scrolling works after updating state
     }, 200); //Increased wait time so it wont lose the ref to te index
   };
-
 
   return (
     <>
@@ -109,6 +128,8 @@ const App: React.FC = () => {
             <Carousel isDarkMode={isDarkMode}
               activeProjectId={carouselProjectId}
               setActiveProjectId={setCarouselProjectId}
+              activeProject={activeProject}
+              setActiveProject={setActiveProject}
               activeSubtitleIndex={activeSubtitleIndex}
               setActiveSubtitleIndex={setActiveSubtitleIndex}
             />
