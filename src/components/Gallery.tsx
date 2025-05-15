@@ -2,16 +2,17 @@ import React from "react";
 
 //! Essential import for data access
 import { content } from "../data/contents";
+import { Project } from "./shared/Carousel/Project";
 
 interface GalleryProps {
     // Callback to notify parent that a portrait was clicked
-    onPortraitClick: (projectId: string) => void;
+    onPortraitClick: (project: Project) => void;
 }
-// Dataset instance for gallery section
-const { gallery } = content;
+// Dataset instance for gallery and carousel sections
+const { gallery, carousel } = content;
 
-// Images static dataset loaded from content
-const images = gallery.portraits.content.images;
+// Projects portrait images static dataset loaded from content
+const portraits = carousel.projects.artists;
 
 const Gallery: React.FC<GalleryProps> = ({ onPortraitClick }) => {
     return (
@@ -24,14 +25,14 @@ const Gallery: React.FC<GalleryProps> = ({ onPortraitClick }) => {
                 <div className={gallery.gridLayout.colspan10.className}>
                     <div className={`${gallery.gridLayout.colspan10.container.className}`}>
                         {
-                            images.map((image) => (
-                                <div key={image.id}
+                            portraits.slice(0, 6).map((portrait) => (
+                                <div key={portrait.id}
                                     className={`${gallery.portraits.className}`}
-                                    onClick={() => onPortraitClick(image.id)}> {/*Notify parent with project id and update project when clicking */}
+                                    onClick={() => onPortraitClick(portrait)}> {/*Notify parent with project id and update project when clicking */}
                                     <img
-                                        src={image.src}
-                                        alt={image.alt}
-                                        title={image.title}
+                                        src={portrait.portrait_src}
+                                        alt={portrait.title}
+                                        title={portrait.title}
                                         className={`${gallery.portraits.content.className}`}
                                     />
                                 </div>

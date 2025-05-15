@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, MenuButton, Transition } from "@headlessui/react";
 import { Project } from "./Project" // Common Projects interface
 
 interface DesktopMenuProps {
     projects: readonly Project[]; // Accept readonly arrays
+    activeProject: Project | null;
+    setActiveProject: (project: Project | null) => void;
     onSubtitleClick: (projectId: string, subtitleIndex: number) => void;
     className: string;
 }
 
-const DesktopMenu: React.FC<DesktopMenuProps> = ({ projects, onSubtitleClick, className }) => {
-    const [activeProject, setActiveProject] = useState<Project | null>(null);
+const DesktopMenu: React.FC<DesktopMenuProps> = ({ projects, activeProject, setActiveProject, onSubtitleClick, className }) => {
+    //const [activeProject, setActiveProject] = useState<Project | null>(null);
 
-    // Handle project click
-    const handleProjectClick = (project: Project) => {
-        if (activeProject?.id === project.id) {
-            // Close subtitles if the same project is clicked again
-            setActiveProject(null);
-        } else {
-            // Open subtitles for the clicked project
-            setActiveProject(project);
-        }
-    };
-
-    // Close sidebar and reset states
+    // Close project dropdowns and reset states
     const closeProjectTree = () => {
         setActiveProject(null);
     };
@@ -41,7 +32,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ projects, onSubtitleClick, cl
                                 {/*Project Main Title*/}
                                 <MenuButton className={`w-40`}>
                                     <a
-                                        onClick={() => handleProjectClick(project)}
+                                        onClick={() => setActiveProject(project)}
                                         className={`block rounded-full font-inter md:text-sm scale-y-90 tracking-tight leading-none lowercase transition-colors cursor-pointer border border-gray-600 hover:border-transparent md:px-2.5 py-0.5
                                                    `}
                                     >

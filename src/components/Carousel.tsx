@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types"; // Import Swiper types properly
-import { Navigation, Pagination} from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -17,6 +17,8 @@ import DesktopMenu from "./shared/Carousel/DesktopMenu";
 interface CarouselProps {
     activeProjectId: string | null;
     setActiveProjectId: (projectId: string) => void;
+    activeProject: Project | null;
+    setActiveProject: (project: Project | null) => void;
     isDarkMode: boolean;
     activeSubtitleIndex: number;
     setActiveSubtitleIndex: (index: number) => void;
@@ -28,7 +30,7 @@ const { carousel } = content;
 // Default projects static dataset loaded from content
 const default_projects = carousel.projects.artists;
 
-const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, activeSubtitleIndex, setActiveSubtitleIndex, isDarkMode }) => {
+const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId, activeProject, setActiveProject, activeSubtitleIndex, setActiveSubtitleIndex, isDarkMode }) => {
 
     // Find the active project
     const project: Project = default_projects.find((p) => p.id === activeProjectId)!;
@@ -154,7 +156,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                     <MobileMenu className="md:hidden" isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onButtonClick={handleProjectButtonClick} />
 
                     {/*Custom Menu (Visibile on Desktop)*/}
-                    <DesktopMenu className="hidden md:block" projects={default_projects} onSubtitleClick={handleSubtitleClick} />
+                    <DesktopMenu className="hidden md:block" projects={default_projects} onSubtitleClick={handleSubtitleClick} activeProject={activeProject} setActiveProject={setActiveProject} />
 
                 </div>
                 {/* 2nd Column: Swiper Carousel */}

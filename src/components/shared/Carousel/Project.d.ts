@@ -6,5 +6,6 @@ interface ArtistProjects {
 export interface Project {
     id: string;
     title: string;
+    portrait_src: string | undefined;
     projects: readonly ArtistProjects[];
 }
