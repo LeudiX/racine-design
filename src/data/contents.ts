@@ -16,7 +16,7 @@ import teezo_portrait from "/media/gallery/teezo.webp";
 import mattox_portrait from "/media/gallery/mattox.webp";
 import lilnas_portrait from "/media/gallery/lil_nas.webp";
 import others_portrait from "/media/gallery/others.webp";
-import paper_mag from "/media/gallery/paper_mag.webp";
+import paper_mag_portrait from "/media/gallery/paper_mag.webp";
 
 //! About section required parallax images import
 import parallax_leafs from "/media/about/parallax_leafs_cloud.webp";
@@ -211,44 +211,6 @@ export const content = {
       content: {
         className:
           "section-container sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-120 hover:z-10",
-        images: [
-          {
-            id: "dorian",
-            src: dorian_portrait,
-            alt: "Dorian",
-            title: "Dorian Electra",
-          },
-          {
-            id: "teezo",
-            src: teezo_portrait,
-            alt: "Teezo",
-            title: "Teezo",
-          },
-          {
-            id: "mattox",
-            src: mattox_portrait,
-            alt: "Mattox",
-            title: "Mattox",
-          },
-          {
-            id: "lilnas",
-            src: lilnas_portrait,
-            alt: "LilNasX",
-            title: "Lil NasX",
-          },
-          {
-            id: "others",
-            src: others_portrait,
-            alt: "Others",
-            title: "Others",
-          },
-          {
-            id: "papermag",
-            src: paper_mag,
-            alt: "Paper Mag",
-            title: "Paper Mag",
-          },
-        ],
       },
     },
   },
@@ -276,6 +238,7 @@ export const content = {
         {
           id: "lilnas",
           title: "Lil Nas X",
+          portrait_src: lilnas_portrait,
           projects: [
             {
               subtitle: "Eric Andre Show",
@@ -306,6 +269,7 @@ export const content = {
         {
           id: "teezo",
           title: "Teezo",
+          portrait_src: teezo_portrait,
           projects: [
             {
               subtitle: "Doja Cat - Masc",
@@ -340,6 +304,7 @@ export const content = {
         {
           id: "dorian",
           title: "Dorian Electra",
+          portrait_src: dorian_portrait,
           projects: [
             {
               subtitle: "My Agenda Tour",
@@ -366,6 +331,7 @@ export const content = {
         {
           id: "mattox",
           title: "Matt Ox",
+          portrait_src: mattox_portrait,
           projects: [
             {
               subtitle: "Montreality",
@@ -384,6 +350,7 @@ export const content = {
         {
           id: "papermag",
           title: "Paper Mag",
+          portrait_src: paper_mag_portrait,
           projects: [
             {
               subtitle: "Interview",
@@ -398,24 +365,9 @@ export const content = {
           ],
         },
         {
-          id: "apex",
-          title: "Apex",
-          projects: [
-            {
-              subtitle: "Custom Skates",
-              media: [
-                { type: "image", url: custom_skates_img1_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img2_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img3_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img4_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img5_url, title: "Apex Custom Skates" },
-              ],
-            },
-          ],
-        },
-        {
           id: "others",
           title: "Costume Design",
+          portrait_src: others_portrait,
           projects: [
             {
               subtitle: "Baby  Monster",
@@ -451,6 +403,23 @@ export const content = {
               media: [
                 { type: "image", url: costume_designI_img9_url, title: "Costume Design - XG" },
                 { type: "image", url: costume_designI_img10_url, title: "Costume Design - XG" },
+              ],
+            },
+          ],
+        },
+        {
+          id: "apex",
+          title: "Apex",
+          portrait_src: '',
+          projects: [
+            {
+              subtitle: "Custom Skates",
+              media: [
+                { type: "image", url: custom_skates_img1_url, title: "Apex Custom Skates" },
+                { type: "image", url: custom_skates_img2_url, title: "Apex Custom Skates" },
+                { type: "image", url: custom_skates_img3_url, title: "Apex Custom Skates" },
+                { type: "image", url: custom_skates_img4_url, title: "Apex Custom Skates" },
+                { type: "image", url: custom_skates_img5_url, title: "Apex Custom Skates" },
               ],
             },
           ],
