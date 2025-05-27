@@ -87,13 +87,6 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
         }
     };
 
-    // Handle project button clicks (not from the sidebar)
-    const handleProjectButtonClick = (projectId: string) => {
-        isSubtitleClickRef.current = false; // Mark the project change as a button click
-        setActiveSubtitleIndex(0); // Active the first subtitle index when button clicked
-        setActiveProjectId(projectId);
-    };
-
     // Function to handle video play/pause
     const handleVideoClick = () => {
         if (videoRef.current) {
@@ -137,7 +130,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
 
             <div>
                 {/*External Sidebar Component*/}
-                <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} />
+                <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} activeProject={activeProject} setActiveProject={setActiveProject} />
             </div>
 
             {/*Grid Layout*/}
@@ -153,7 +146,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                     </h6>
 
                     {/*Custom Menu (Visible on Mobile)*/}
-                    <MobileMenu className="md:hidden" isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onButtonClick={handleProjectButtonClick} />
+                    <MobileMenu className="md:hidden" isSidebarOpen={isSidebarOpen} setIsSidebarOpen={handleToggleSidebar} projects={default_projects} onSubtitleClick={handleSubtitleClick} activeProject={activeProject} setActiveProject={setActiveProject} />
 
                     {/*Custom Menu (Visibile on Desktop)*/}
                     <DesktopMenu className="hidden md:block" projects={default_projects} onSubtitleClick={handleSubtitleClick} activeProject={activeProject} setActiveProject={setActiveProject} />
