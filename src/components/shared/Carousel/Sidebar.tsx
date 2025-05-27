@@ -1,5 +1,4 @@
-// src/components/Sidebar.tsx
-import React, { useState } from "react";
+import React from "react";
 import { Menu, MenuButton, Transition } from "@headlessui/react";
 import { Project } from "./Project" // Common Projects interface
 
@@ -7,28 +6,20 @@ interface SidebarProps {
     isDarkMode: boolean;
     isSidebarOpen: boolean;
     setIsSidebarOpen: (isSidebarOpen: boolean) => void;
+    activeProject: Project | null;
+    setActiveProject: (project: Project | null) => void;
     projects: readonly Project[]; // Accept readonly arrays
     onSubtitleClick: (projectId: string, subtitleIndex: number) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSidebarOpen, projects, onSubtitleClick }) => {
-
-    const [activeProject, setActiveProject] = useState<Project | null>(null);
-
-    // Handle project click
-    const handleProjectClick = (project: Project) => {
-        if (activeProject?.id === project.id) {
-            // Close subtitles if the same project is clicked again
-            setActiveProject(null);
-        } else {
-            // Open subtitles for the clicked project
-            setActiveProject(project);
-        }
-    };
-
+const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSidebarOpen, activeProject, setActiveProject, projects, onSubtitleClick }) => {
     // Close sidebar and reset states
     const closeSidebar = () => {
         setIsSidebarOpen(false);
+    };
+
+    // Close project dropdowns and reset states
+    const closeProjectTree = () => {
         setActiveProject(null);
     };
 
@@ -71,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSideb
                                     {/*Project Main Title*/}
                                     <MenuButton className={`w-full`}>
                                         <a
-                                            onClick={() => handleProjectClick(project)}
+                                            onClick={() => { setActiveProject(project); onSubtitleClick(project.id, 0) }}
                                             className={`block rounded-full font-inter md:text-sm scale-y-90 tracking-tight leading-none lowercase transition-colors cursor-pointer border border-gray-600 hover:border-transparent md:px-2.5 py-0.5
                                                    `}
                                         >
@@ -95,6 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSideb
                                                         <a
                                                             onClick={() => {
                                                                 onSubtitleClick(project.id, index);
+                                                                closeProjectTree();
                                                                 closeSidebar();
                                                             }}
                                                             className={`block rounded-full font-inter md:text-sm scale-y-90 tracking-tight leading-none lowercase transition-colors cursor-pointer border border-gray-600 hover:border-transparent md:px-2.5 py-0.5 
