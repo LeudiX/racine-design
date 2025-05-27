@@ -415,11 +415,16 @@ export const content = {
             {
               subtitle: "Custom Skates",
               media: [
-                { type: "image", url: custom_skates_img1_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img2_url, title: "Apex Custom Skates" },
-                { type: "image", url: custom_skates_img3_url, title: "Apex Custom Skates" },
                 { type: "image", url: custom_skates_img4_url, title: "Apex Custom Skates" },
                 { type: "image", url: custom_skates_img5_url, title: "Apex Custom Skates" },
+                { type: "image", url: custom_skates_img3_url, title: "Apex Custom Skates" },
+              ],
+            },
+            {
+              subtitle: "Apex Concept",
+              media: [
+                { type: "image", url: custom_skates_img1_url, title: "Apex Concept" },
+                { type: "image", url: custom_skates_img2_url, title: "Apex Concept" },
               ],
             },
           ],
