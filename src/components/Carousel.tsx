@@ -12,6 +12,7 @@ import { Project } from "../components/shared/Carousel/Project" // Common Projec
 import Sidebar from "./shared/Carousel/Sidebar";
 import MobileMenu from "./shared/Carousel/MobileMenu";
 import DesktopMenu from "./shared/Carousel/DesktopMenu";
+import { ChevronDoubleRightIcon } from "@heroicons/react/20/solid";
 
 
 interface CarouselProps {
@@ -74,6 +75,37 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
         // Reset the ref after handling
         isSubtitleClickRef.current = false;
     }, [activeProjectId, project.title, setActiveSubtitleIndex]);
+
+    //Custom logic for media concatenation navigation inside the Swiper component
+    const goToNextItem = () => {
+        const currentProjectIndex = default_projects.findIndex(p => p.id === activeProjectId);
+        const currentProject = default_projects[currentProjectIndex];
+        const currentSubtitle = currentProject.projects[activeSubtitleIndex];
+        const isLastMediaInSubtitle = activeIndex === currentSubtitle.media.length - 1;
+        const isLastSubtitle = activeSubtitleIndex === currentProject.projects.length - 1;
+        const isLastProject = currentProjectIndex === default_projects.length - 1;
+
+        if (!isLastMediaInSubtitle) {
+            // Not on last media, shouldn't happen if button shows only on last
+            return;
+        }
+
+        if (!isLastSubtitle) {
+            // Go to next subtitle within the same artist
+            setActiveSubtitleIndex(prev => prev + 1);
+            setActiveIndex(0);
+            if (swiperRef.current) swiperRef.current.slideTo(0, 0);
+        } else if (!isLastProject) {
+            // Last subtitle reached — go to next artist project
+            const nextProject = default_projects[currentProjectIndex + 1];
+            setActiveProjectId(nextProject.id);
+            setActiveSubtitleIndex(0);
+            setActiveIndex(0);
+            isSubtitleClickRef.current = false;
+            if (swiperRef.current) swiperRef.current.slideTo(0, 0);
+        }
+        // else: We're on last media of last subtitle of last artist → do nothing
+    };
 
 
     // Function to handle subtitle click in the sidebar menu
@@ -169,7 +201,7 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                         {media.map((item, index) => (
                             <SwiperSlide key={index}>
                                 {/* Pagination Display (Current Slide / Total) */}
-                                <div className="absolute top-2 right-2 bg-[#ffffff80] text-gray-700 px-2 py-1 rounded-full">
+                                <div className="absolute top-2 right-2 bg-[#ffffff80] font-inter font-semibold lowercase text-gray-900 px-2 py-1 rounded-full">
                                     {activeIndex + 1} / {media.length}
                                 </div>
                                 <div className={carousel.swiperSlide.className}
@@ -193,6 +225,30 @@ const Carousel: React.FC<CarouselProps> = ({ activeProjectId, setActiveProjectId
                                         />
                                     )}
                                 </div>
+                                {/* Next Project Button (only on last slide) */}
+                                {index === media.length - 1 && (() => {
+
+                                    const currentProjectIndex = default_projects.findIndex(p => p.id === activeProjectId);
+                                    const currentProject = default_projects[currentProjectIndex];
+                                    const isLastSubtitle = activeSubtitleIndex === currentProject.projects.length - 1;
+                                    const isLastProject = currentProjectIndex === default_projects.length - 1;
+
+                                    // Only hide the button if truly the final media item of the final subtitle of the final artist
+                                    const shouldShowNextButton = !(isLastSubtitle && isLastProject);
+
+                                    return shouldShowNextButton ? (
+                                        <div className="absolute bottom-6 right-6 z-10">
+                                            <button
+                                                onClick={goToNextItem}
+                                                className="flex items-center gap-2 bg-[#ffffff80]/70 text-gray-900 font-inter lowercase cursor-pointer font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition-colors group"
+                                            >
+                                                <span>Next Project</span>
+                                                <ChevronDoubleRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </div>
+                                    ) : null;
+
+                                })()}
                             </SwiperSlide>
                         ))}
                     </Swiper>
