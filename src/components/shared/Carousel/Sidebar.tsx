@@ -18,10 +18,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSideb
         setIsSidebarOpen(false);
     };
 
-    // Close project dropdowns and reset states
-    const closeProjectTree = () => {
+    // Close project dropdowns menu and reset states
+    /*const closeProjectTree = () => {
         setActiveProject(null);
-    };
+    };*/
 
     return (
         <>
@@ -86,7 +86,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, isSidebarOpen, setIsSideb
                                                         <a
                                                             onClick={() => {
                                                                 onSubtitleClick(project.id, index);
-                                                                closeProjectTree();
                                                                 closeSidebar();
                                                             }}
                                                             className={`block rounded-full font-inter md:text-sm scale-y-90 tracking-tight leading-none lowercase transition-colors cursor-pointer border border-gray-600 hover:border-transparent md:px-2.5 py-0.5 
