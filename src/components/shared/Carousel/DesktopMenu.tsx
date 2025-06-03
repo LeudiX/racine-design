@@ -11,10 +11,10 @@ interface DesktopMenuProps {
 }
 
 const DesktopMenu: React.FC<DesktopMenuProps> = ({ projects, activeProject, setActiveProject, onSubtitleClick, className }) => {
-    // Close project dropdowns and reset states
-    const closeProjectTree = () => {
+    // Close project dropdowns menu and reset states
+    /*const closeProjectTree = () => {
         setActiveProject(null);
-    };
+    };*/
 
     return (
         <>
@@ -54,7 +54,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ projects, activeProject, setA
                                                     <a
                                                         onClick={() => {
                                                             onSubtitleClick(project.id, index);
-                                                            closeProjectTree();
+                                                            {/*closeProjectTree();*/}
                                                         }}
                                                         className={`block rounded-full font-inter md:text-sm scale-y-90 tracking-tight leading-none lowercase transition-colors cursor-pointer border border-gray-600 hover:border-transparent md:px-2.5 py-0.5 
                                                                     }`}
